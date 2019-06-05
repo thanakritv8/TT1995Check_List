@@ -135,15 +135,15 @@
     <Content Include="Content\Layout\dx.common.css" />
     <Content Include="Content\Layout\dx.light.css" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Layout\fonts\Roboto-300.ttf" />
-    <Content Include="Content\Layout\fonts\Roboto-300.woff" />
-    <Content Include="Content\Layout\fonts\Roboto-300.woff2" />
-    <Content Include="Content\Layout\fonts\Roboto-400.ttf" />
-    <Content Include="Content\Layout\fonts\Roboto-400.woff" />
-    <Content Include="Content\Layout\fonts\Roboto-400.woff2" />
-    <Content Include="Content\Layout\fonts\Roboto-500.ttf" />
-    <Content Include="Content\Layout\fonts\Roboto-500.woff" />
-    <Content Include="Content\Layout\fonts\Roboto-500.woff2" />
+    <Content Include="Content\fonts\Roboto-300.ttf" />
+    <Content Include="Content\fonts\Roboto-300.woff" />
+    <Content Include="Content\fonts\Roboto-300.woff2" />
+    <Content Include="Content\fonts\Roboto-400.ttf" />
+    <Content Include="Content\fonts\Roboto-400.woff" />
+    <Content Include="Content\fonts\Roboto-400.woff2" />
+    <Content Include="Content\fonts\Roboto-500.ttf" />
+    <Content Include="Content\fonts\Roboto-500.woff" />
+    <Content Include="Content\fonts\Roboto-500.woff2" />
     <Content Include="Content\Layout\icons\dxicons.ttf" />
     <Content Include="Content\Layout\icons\dxicons.woff" />
     <Content Include="Content\Layout\icons\dxicons.woff2" />
@@ -169,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerContactModels.cs" />
     <Compile Include="Models\CustomerModels.cs" />
     <Compile Include="Models\ExecuteModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
