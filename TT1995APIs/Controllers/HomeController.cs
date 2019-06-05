@@ -416,5 +416,139 @@ namespace TT1995APIs.Controllers
         }
 
         #endregion
+
+        #region Product
+
+        public JsonResult GetProduct()
+        {
+            List<ProductModels> ul = new List<ProductModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[product]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        ProductModels PM = new ProductModels();
+                        PM.product_id = Int32.Parse(_Item["product_id"].ToString());
+                        PM.product_name = _Item["product_name"].ToString();
+                        PM.product_type_id = Int32.Parse(_Item["product_type_id"].ToString());
+                        ul.Add(PM);
+                    }
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult InsertProduct(string product_name, string product_type_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "insert into [TT1995_CheckList].[dbo].[product] (product_name, product_type_id, create_by_user_id) output inserted.product_id values (N'" + product_name + "', '" + product_type_id + "', 1)";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        EM.intReturn = Int32.Parse(cmd.ExecuteScalar().ToString());
+                        if (EM.intReturn >= 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UpdateProduct(string product_id, string product_name, string product_type_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string[] col = { "product_name", "product_type_id" };
+                string[] data = { product_name, product_type_id };
+                string _SQL = "update [TT1995_CheckList].[dbo].[product] set update_date = getdate(), update_by_user_id = 1, ";
+                for (int i = 0; i <= col.Length - 1; i++)
+                {
+                    if (data[i] != null)
+                    {
+                        _SQL += col[i] + " = N'" + data[i] + "',";
+                    }
+                }
+                _SQL = _SQL.Substring(0, _SQL.Length - 1);
+                _SQL += " where product_id = " + product_id;
+
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult DeleteProduct(string product_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "delete from [TT1995_CheckList].[dbo].[product] where product_id = " + product_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
     }
 }
