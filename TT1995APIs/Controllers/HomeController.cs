@@ -281,5 +281,140 @@ namespace TT1995APIs.Controllers
 
         #endregion
 
+        #region Address Customer
+
+        public JsonResult GetAddressCustomer()
+        {
+            List<AddressCustomerModels> ul = new List<AddressCustomerModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[address_customer]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        AddressCustomerModels ACM = new AddressCustomerModels();
+                        ACM.address_id = Int32.Parse(_Item["address_id"].ToString());
+                        ACM.address = _Item["address"].ToString();
+                        ACM.zip_code = _Item["zip_code"].ToString();
+                        ACM.province_id = Int32.Parse(_Item["province_id"].ToString());
+                        ACM.cus_id = Int32.Parse(_Item["cus_id"].ToString());
+                        ul.Add(ACM);
+                    }
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult InsertAddressCustomer(string address, string zip_code, string province_id, string cus_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "insert into [TT1995_CheckList].[dbo].[address_customer] (address, zip_code, province_id, cus_id, create_by_user_id) output inserted.address_id values (N'" + address + "', N'" + zip_code + "', '" + province_id + "', '" + cus_id + "', 1)";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        EM.intReturn = Int32.Parse(cmd.ExecuteScalar().ToString());
+                        if (EM.intReturn >= 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UpdateAddressCustomer(string address_id, string address, string zip_code, string province_id, string cus_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string[] col = { "address", "zip_code", "province_id", "cus_id" };
+                string[] data = { address, zip_code, province_id, cus_id };
+                string _SQL = "update [TT1995_CheckList].[dbo].[address_customer] set update_date = getdate(), update_by_user_id = 1, ";
+                for (int i = 0; i <= col.Length - 1; i++)
+                {
+                    if (data[i] != null)
+                    {
+                        _SQL += col[i] + " = N'" + data[i] + "',";
+                    }
+                }
+                _SQL = _SQL.Substring(0, _SQL.Length - 1);
+                _SQL += " where address_id = " + address_id;
+
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult DeleteAddressCustomer(string address_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "delete from [TT1995_CheckList].[dbo].[address_customer] where address_id = " + address_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
     }
 }
