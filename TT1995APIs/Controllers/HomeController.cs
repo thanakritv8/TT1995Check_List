@@ -56,7 +56,7 @@ namespace TT1995APIs.Controllers
             List<ExecuteModels> ul = new List<ExecuteModels>();
             using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
             {
-                string _SQL = "insert into [TT1995_CheckList].[dbo].[customer] (cus_name) output inserted.cus_id values ('" + cus_name + "')";
+                string _SQL = "insert into [TT1995_CheckList].[dbo].[customer] (cus_name, create_by_user_id) output inserted.cus_id values ('" + cus_name + "', 1)";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     ExecuteModels EM = new ExecuteModels();
@@ -64,6 +64,67 @@ namespace TT1995APIs.Controllers
                     {
                         EM.intReturn = Int32.Parse(cmd.ExecuteScalar().ToString());
                         if (EM.intReturn >= 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UpdateCustomer(string cus_id, string cus_name)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "update [TT1995_CheckList].[dbo].[customer] set cus_name = '" + cus_name + "', update_date = getdate(), update_by_user_id = 1 where cus_id = " + cus_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult DeleteCustomer(string cus_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "delete from [TT1995_CheckList].[dbo].[customer] where cus_id = " + cus_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
                         {
                             EM.status = 200;
                             EM.code = "OK";
