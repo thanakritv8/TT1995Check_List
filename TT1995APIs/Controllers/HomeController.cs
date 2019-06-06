@@ -583,7 +583,7 @@ namespace TT1995APIs.Controllers
             List<ExecuteModels> ul = new List<ExecuteModels>();
             using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
             {
-                string _SQL = "insert into [TT1995_CheckList].[dbo].[product_type] (product_type, create_by_user_id) output inserted.product_id values (N'" + product_type + "', 1)";
+                string _SQL = "insert into [TT1995_CheckList].[dbo].[product_type] (product_type, create_by_user_id) output inserted.product_type_id values (N'" + product_type + "', 1)";
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     ExecuteModels EM = new ExecuteModels();
@@ -657,6 +657,408 @@ namespace TT1995APIs.Controllers
             using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
             {
                 string _SQL = "delete from [TT1995_CheckList].[dbo].[product_type] where product_type_id = " + product_type_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Address Bill
+
+        public JsonResult GetAddressBill()
+        {
+            List<AddressBillModels> ul = new List<AddressBillModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[address_bill]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        AddressBillModels ABM = new AddressBillModels();
+                        ABM.address_bill_id = Int32.Parse(_Item["address_bill_id"].ToString());
+                        ABM.address = _Item["address"].ToString();
+                        ABM.province_id = Int32.Parse(_Item["province_id"].ToString());
+                        ABM.zip_code = _Item["zip_code"].ToString();
+                        ul.Add(ABM);
+                    }
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult InsertAddressBill(string address, string province_id, string zip_code)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "insert into [TT1995_CheckList].[dbo].[address_bill] (address, province_id, zip_code, create_by_user_id) output inserted.address_bill_id values (N'" + address + "', '" + province_id + "', '" + zip_code + "', 1)";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        EM.intReturn = Int32.Parse(cmd.ExecuteScalar().ToString());
+                        if (EM.intReturn >= 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UpdateAddressBill(string address_bill_id, string address, string province_id, string zip_code)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string[] col = { "address", "province_id", "zip_code" };
+                string[] data = { address, province_id, zip_code };
+                string _SQL = "update [TT1995_CheckList].[dbo].[address_bill] set update_date = getdate(), update_by_user_id = 1, ";
+                for (int i = 0; i <= col.Length - 1; i++)
+                {
+                    if (data[i] != null)
+                    {
+                        _SQL += col[i] + " = N'" + data[i] + "',";
+                    }
+                }
+                _SQL = _SQL.Substring(0, _SQL.Length - 1);
+                _SQL += " where address_bill_id = " + address_bill_id;
+
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult DeleteAddressBill(string address_bill_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "delete from [TT1995_CheckList].[dbo].[address_bill] where address_bill_id = " + address_bill_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Country
+
+        public JsonResult GetCountry()
+        {
+            List<CountryModels> ul = new List<CountryModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[country]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        CountryModels CM = new CountryModels();
+                        CM.country_id = Int32.Parse(_Item["country_id"].ToString());
+                        CM.country = _Item["country"].ToString();                        
+                        ul.Add(CM);
+                    }
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult InsertCountry(string country)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "insert into [TT1995_CheckList].[dbo].[country] (country, create_by_user_id) output inserted.country_id values (N'" + country + "', 1)";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        EM.intReturn = Int32.Parse(cmd.ExecuteScalar().ToString());
+                        if (EM.intReturn >= 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UpdateCountry(string country_id, string country)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string[] col = { "country" };
+                string[] data = { country };
+                string _SQL = "update [TT1995_CheckList].[dbo].[country] set update_date = getdate(), update_by_user_id = 1, ";
+                for (int i = 0; i <= col.Length - 1; i++)
+                {
+                    if (data[i] != null)
+                    {
+                        _SQL += col[i] + " = N'" + data[i] + "',";
+                    }
+                }
+                _SQL = _SQL.Substring(0, _SQL.Length - 1);
+                _SQL += " where country_id = " + country_id;
+
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult DeleteCountry(string country_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "delete from [TT1995_CheckList].[dbo].[country] where country_id = " + country_id;
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Province
+
+        public JsonResult GetProvince()
+        {
+            List<ProvinceModels> ul = new List<ProvinceModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[province]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        ProvinceModels PM = new ProvinceModels();
+                        PM.province_id = Int32.Parse(_Item["province_id"].ToString());
+                        PM.province = _Item["province"].ToString();
+                        PM.country_id = Int32.Parse(_Item["country_id"].ToString());
+                        ul.Add(PM);
+                    }
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+        
+        public JsonResult InsertProvince(string province, string country_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "insert into [TT1995_CheckList].[dbo].[province] (province, country_id, create_by_user_id) output inserted.country_id values ('" + province + "', '" + country_id + "', 1)";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        EM.intReturn = Int32.Parse(cmd.ExecuteScalar().ToString());
+                        if (EM.intReturn >= 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UpdateProvince(string province_id, string province, string country_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string[] col = { "province", "country_id" };
+                string[] data = { province, country_id };
+                string _SQL = "update [TT1995_CheckList].[dbo].[province] set update_date = getdate(), update_by_user_id = 1, ";
+                for (int i = 0; i <= col.Length - 1; i++)
+                {
+                    if (data[i] != null)
+                    {
+                        _SQL += col[i] + " = N'" + data[i] + "',";
+                    }
+                }
+                _SQL = _SQL.Substring(0, _SQL.Length - 1);
+                _SQL += " where province_id = " + province_id;
+
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    ExecuteModels EM = new ExecuteModels();
+                    try
+                    {
+                        if (Int32.Parse(cmd.ExecuteNonQuery().ToString()) == 1)
+                        {
+                            EM.status = 200;
+                            EM.code = "OK";
+                            EM.record = 1;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EM.status = -1;
+                        EM.code = ex.Message;
+                    }
+                    ul.Add(EM);
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult DeleteProvince(string province_id)
+        {
+            List<ExecuteModels> ul = new List<ExecuteModels>();
+            using (SqlConnection con = ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "delete from [TT1995_CheckList].[dbo].[province] where province_id = " + province_id;
                 using (SqlCommand cmd = new SqlCommand(_SQL, con))
                 {
                     ExecuteModels EM = new ExecuteModels();
