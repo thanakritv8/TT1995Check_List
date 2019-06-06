@@ -16,7 +16,9 @@ namespace TT1995APIs.Controllers
         public ActionResult Index()
         {
             return View();
-        }        
+        }
+
+        #region Profile
 
         #region Customer
 
@@ -1109,6 +1111,62 @@ namespace TT1995APIs.Controllers
                 con.Close();
             }
             return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Relation
+
+        public JsonResult GetRelationState(string table_id_main, string table_id_second)
+        {
+            UtilityController uc = new UtilityController();
+            List<StateModels> ul = new List<StateModels>();
+            using (SqlConnection con = uc.ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                DataTable _DtMain = GetConfigTable(table_id_main);
+                DataTable _DtSecond = GetConfigTable(table_id_second);
+                if(_DtMain.Rows.Count > 0 && _DtSecond.Rows.Count > 0)
+                {
+                    string _TbMain = _DtMain.Rows[0]["table_name"].ToString();
+                    string _TbSecond = _DtSecond.Rows[0]["table_name"].ToString();
+
+                    string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[relation_state] where table_id_main = " + table_id_main + " and table_id_second = " + table_id_second;
+                    SqlCommand cmd = new SqlCommand(_SQL, con);
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        StateModels SM = new StateModels();
+                        SM.state_id = Int32.Parse(_Item["state_id"].ToString());
+                        SM.table_id_main = Int32.Parse(_Item["table_id_main"].ToString());
+                        SM.table_id_second = Int32.Parse(_Item["table_id_second"].ToString());
+                        ul.Add(SM);
+                    }
+                    con.Close();
+                }
+                
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+
+        private DataTable GetConfigTable(string table_id)
+        {
+            UtilityController uc = new UtilityController();
+            DataTable _Dt = new DataTable();
+            using (SqlConnection con = uc.ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT table_name, display FROM [TT1995_CheckList].[dbo].[config_table] where table_id = " + table_id;
+                SqlCommand cmd = new SqlCommand(_SQL, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(_Dt);
+                da.Dispose();               
+                con.Close();
+            }
+            return _Dt;
         }
 
         #endregion
