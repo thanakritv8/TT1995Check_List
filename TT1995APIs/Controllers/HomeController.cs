@@ -17,7 +17,7 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
-        private static SqlConnection ConnectDatabase(string server, string username, string password)
+        public SqlConnection ConnectDatabase(string server, string username, string password)
         {
             SqlConnection connection = new SqlConnection("Server=" + server + ";UID=" + username + ";PASSWORD=" + password + ";Max Pool Size=4000;Connect Timeout=600;Trusted_Connection=False;");
             connection.Open();
