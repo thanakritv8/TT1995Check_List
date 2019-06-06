@@ -24,6 +24,13 @@ namespace TT1995APIs.Controllers
             SHA256Managed sha = new SHA256Managed();
             byte[] hash = sha.ComputeHash(bytClearString);
             return Convert.ToBase64String(hash);
-        }        
+        }
+
+        public SqlConnection ConnectDatabase(string server, string username, string password)
+        {
+            SqlConnection connection = new SqlConnection("Server=" + server + ";UID=" + username + ";PASSWORD=" + password + ";Max Pool Size=4000;Connect Timeout=600;Trusted_Connection=False;");
+            connection.Open();
+            return connection;
+        }
     }
 }

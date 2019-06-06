@@ -14,7 +14,7 @@ namespace TT1995APIs.Models.Account
         public string login_status { get; set; }
     }
 
-    public class PermissionAccount
+    public class PermissionAccountModels
     {
         public int application_id { get; set; }
         public string application_name { get; set; }
