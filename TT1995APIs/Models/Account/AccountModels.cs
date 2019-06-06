@@ -11,7 +11,9 @@ namespace TT1995APIs.Models.Account
         public string username { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
-        public string login_status { get; set; }
+        public int group_id { get; set; }
+        public int login_status { get; set; }
+        public List<PermissionAccountModels> permission { get; set; }
     }
 
     public class PermissionAccountModels
