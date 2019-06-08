@@ -13,4 +13,30 @@ namespace TT1995APIs.Models.Home
         public int table_id_main { get; set; }
         public int table_id_second { get; set; }
     }
+
+    public class TransportModels
+    {
+
+    }
+
+    public class ContactAddress
+    {
+
+    }
+
+    public class EquipmentLade
+    {
+
+    }
+
+    public class EquipmentSafety
+    {
+
+    }
+
+    public class EquipmentTransport
+    {
+
+    }
+
 }

@@ -18,6 +18,11 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
+        public ActionResult Master()
+        {
+            return View();
+        }
+
         #region Profile
 
         #region Customer
