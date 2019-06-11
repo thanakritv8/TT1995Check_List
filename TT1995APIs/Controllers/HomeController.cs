@@ -13,7 +13,6 @@ namespace TT1995APIs.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        // test push branch tew
         public ActionResult Index()
         {
             return View();
