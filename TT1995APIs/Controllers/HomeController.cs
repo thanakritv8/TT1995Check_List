@@ -12,15 +12,13 @@ namespace TT1995APIs.Controllers
 {
     public class HomeController : Controller
     {
-        //test
-        //test1
         // GET: Home
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Master()
+        public ActionResult ProfileData()
         {
             return View();
         }
