@@ -50,7 +50,7 @@ $(function () {
         $('#' + previuos_menu).removeClass("active");
         previuos_menu = 'equip';
         $('#' + previuos_menu).addClass("active");
-        //alert("The paragraph was clicked.");
+        alert("The paragraph was clicked.");
         getcountry();
     });
     $('#customer').click(function () {
