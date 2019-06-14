@@ -1,23 +1,71 @@
-﻿$.ajax({
-    type: "POST",
-    url: "../Home/GetCustomer",
-    dataType: "json",
-    async: false,
-    success: function (data) {
-        console.log(data);        
-    },
-    complete: function (jqXHR) {
-        console.log(jqXHR.status);
-    },
-    error: function (e) {
-        console.log(e);
-    }
-});
+﻿
 $(function () {
-    $("#gridContainer").dxDataGrid({
-        dataSource: customers,
-        columns: ["CompanyName", "City", "State", "Phone", "Fax"],
+    var previuos_menu = 'customer';
+    function getcustomer() {
+        $.ajax({
+            type: "POST",
+            url: "../Home/GetCustomer",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                console.log(data);
+                dataGrid.option("dataSource", data);
+            },
+            complete: function (jqXHR) {
+                console.log(jqXHR.status);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+
+    function getcountry() {
+        $.ajax({
+            type: "POST",
+            url: "../Home/GetCountry",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                console.log(data);
+                dataGrid.option("dataSource", data);
+            },
+            complete: function (jqXHR) {
+                console.log(jqXHR.status);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+    var dataGrid = $("#gridContainer").dxDataGrid({
+        //dataSource: customers,
+        // columns: ["customer_id", "customer_name"],
         showBorders: true
+    }).dxDataGrid("instance");
+    getcustomer();
+
+
+    $('#equip').click(function () {
+        $('#' + previuos_menu).removeClass("active");
+        previuos_menu = 'equip';
+        $('#' + previuos_menu).addClass("active");
+        //alert("The paragraph was clicked.");
+        getcountry();
+    });
+    $('#customer').click(function () {
+        $('#' + previuos_menu).removeClass("active");
+        previuos_menu = 'customer';
+        $('#' + previuos_menu).addClass("active");
+        //alert("The paragraph was clicked.");
+        getcustomer();
+    });
+    $('#safety').click(function () {
+        $('#' + previuos_menu).removeClass("active");
+        previuos_menu = 'safety';
+        $('#' + previuos_menu).addClass("active");
+        //alert("The paragraph was clicked.");
+        getcustomer();
     });
 });
 var customers = [{

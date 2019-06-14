@@ -25,7 +25,7 @@ namespace TT1995APIs.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ITLAP043\\MSSQLSERVER1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("LAPTOP-H54UVUPS\\SQLEXPRESS")]
         public string IPAddress {
             get {
                 return ((string)(this["IPAddress"]));
@@ -43,7 +43,7 @@ namespace TT1995APIs.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("P@ssw0rd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("123456")]
         public string Password {
             get {
                 return ((string)(this["Password"]));

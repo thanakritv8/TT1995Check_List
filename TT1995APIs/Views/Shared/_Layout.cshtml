@@ -4,16 +4,75 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Three Trans (1995)</title>
-    <link rel="stylesheet" href="~/Content/Layout/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/Layout/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Layout/sidebar.css" />
+    <link rel="stylesheet" href="~/Content/Layout/style.css" />
     <script src="~/Scripts/Layout/jquery.min.js"></script>
+    <script src="~/Scripts/Layout/popper.js"></script>
+    <script src="~/Scripts/Layout/bootstrap.js"></script>
     <link rel="stylesheet" href="~/Content/Layout/dx.light.css" />
     <link rel="stylesheet" href="~/Content/Layout/dx.common.css" />
+    <script src="https://kit.fontawesome.com/19503b070c.js"></script>
     <script src="~/Scripts/Layout/dx.all.js"></script>
 </head>
-<body>   
-    <div class="container">
-        Test
-        @RenderBody()        
+<body>
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-menu border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading"><img src="~/Content/Layout/tt.png" width="40"/>&nbsp; TRANSPORT SUPPORT</div>
+            <div class="list-group list-group-flush text-white">
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-user"></i> โปรไฟล์</a>
+                <a href="~/Home/ProfileData" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-stream"></i> โปรไฟล์ย่อย</a>
+                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-truck"></i> การขนส่ง</a>
+                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-clipboard-list"></i> รายการตรวจสอบ</a>
+                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-clipboard"></i> รายงาน</a>
+                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-user-friends"></i> บัญชี</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand navbar-light">
+                <button class="btn btn-outline-dark" id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <!--<li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                UserLogin
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            @RenderBody()
+        </div>
+        <!-- /#page-content-wrapper -->
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        </script>
+
     </div>
 </body>
 </html>
