@@ -23,6 +23,11 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
+        public ActionResult TransportData()
+        {
+            return View();
+        }
+
         #region Profile
 
         #region Customer
