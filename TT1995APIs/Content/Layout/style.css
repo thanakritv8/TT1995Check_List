@@ -4,16 +4,26 @@
 .bg-menu {
   background-color: #43425D !important;
 }
-a.bg-menu:hover, a.bg-menu:focus,
+a.bg-menu:hover,
+a.bg-menu:focus,
 button.bg-menu:hover,
 button.bg-menu:focus {
   background-color: #3C3B54 !important;
   border-left: 5px solid #00D1B2;
 }
-a.bg-menu:hover .fas , a.bg-menu:focus .fas ,
-button.bg-menu:hover .fas ,
+a.bg-menu:hover .fas,
+a.bg-menu:focus .fas,
+button.bg-menu:hover .fas,
 button.bg-menu:focus .fas  {
   color: #00D1B2;
+}
+#sidebar-wrapper .list-group-item.active {
+    background-color: #3C3B54 !important;
+    border-left: 5px solid #00D1B2;
+}
+#sidebar-wrapper .list-group-item.active .fa,
+#sidebar-wrapper .list-group-item.active .fas {
+    color: #00D1B2;
 }
 .list-group-item {
     border: none;
