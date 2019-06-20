@@ -1120,6 +1120,91 @@ namespace TT1995APIs.Controllers
 
         #endregion
 
+        #region EquipmentLade
+        public JsonResult GetEquipmentLade()
+        {
+            UtilityController uc = new UtilityController();
+            List<EquipmentLadeModels> ul = new List<EquipmentLadeModels>();
+            using (SqlConnection con = uc.ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[equipment_lade]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        EquipmentLadeModels ELM = new EquipmentLadeModels();
+                        ELM.eq_lade_id = Int32.Parse(_Item["eq_lade_id"].ToString());
+                        ELM.eq_lade = _Item["eq_lade"].ToString();
+                        ELM.carrier_lade_id = Int32.Parse(_Item["carrier_lade_id"].ToString());
+                        ul.Add(ELM);
+                    }
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        #region CarrierLade
+        public JsonResult GetCarrierLade()
+        {
+            UtilityController uc = new UtilityController();
+            List<CarrierLadeModels> ul = new List<CarrierLadeModels>();
+            using (SqlConnection con = uc.ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[carrier_lade]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        CarrierLadeModels CLM = new CarrierLadeModels();
+                        CLM.carrier_lade_id = Int32.Parse(_Item["carrier_lade_id"].ToString());
+                        CLM.carrier_lade = _Item["carrier_lade"].ToString();
+                        ul.Add(CLM);
+                    }
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        #region EquipmentTransport
+        public JsonResult GetEquipmentTransport()
+        {
+            UtilityController uc = new UtilityController();
+            List<EquipmentTransportModels> ul = new List<EquipmentTransportModels>();
+            using (SqlConnection con = uc.ConnectDatabase(Properties.Settings.Default.IPAddress, Properties.Settings.Default.Username, Properties.Settings.Default.Password))
+            {
+                string _SQL = "SELECT * FROM [TT1995_CheckList].[dbo].[equipment_transport]";
+                using (SqlCommand cmd = new SqlCommand(_SQL, con))
+                {
+                    DataTable _Dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(_Dt);
+                    da.Dispose();
+                    foreach (DataRow _Item in _Dt.Rows)
+                    {
+                        EquipmentTransportModels ETM = new EquipmentTransportModels();
+                        ETM.eq_tran_id = Int32.Parse(_Item["eq_tran_id"].ToString());
+                        ETM.eq_name = _Item["eq_name"].ToString();
+                        ul.Add(ETM);
+                    }
+                }
+                con.Close();
+            }
+            return Json(ul, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
         #endregion
 
         #region Relation

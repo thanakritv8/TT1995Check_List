@@ -64,4 +64,23 @@ namespace TT1995APIs.Models.Home
         public int country_id { get; set; }
     }
 
+    public class EquipmentLadeModels
+    {
+        public int eq_lade_id { get; set; }
+        public string eq_lade { get; set; }
+        public int carrier_lade_id { get; set; }
+    }
+
+    public class CarrierLadeModels
+    {
+        public int carrier_lade_id { get; set; }
+        public string carrier_lade { get; set; }
+    }
+
+    public class EquipmentTransportModels
+    {
+        public int eq_tran_id { get; set; }
+        public string eq_name { get; set; }
+    }
+    
 }
