@@ -38,6 +38,9 @@ button.bg-menu:focus .fas  {
     width: 20px;
     margin-right: 10px;
 }
+.sidebar-heading-item {
+    font-size: 0.9rem;
+}
 .header-title {
     background-color: #00D1B2;
     color: #fff;

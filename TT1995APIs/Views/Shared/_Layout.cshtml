@@ -6,8 +6,11 @@
     <title>@ViewBag.Title - Three Trans (1995)</title>
     <link rel="stylesheet" href="~/Content/Layout/bootstrap.css" />
     <link rel="stylesheet" href="~/Content/Layout/sidebar.css" />
+    <link rel="stylesheet" href="~/Content/Layout/jquery.steps.css" />
     <link rel="stylesheet" href="~/Content/Layout/style.css" />
     <script src="~/Scripts/Layout/jquery.min.js"></script>
+    <script src="~/Scripts/Layout/jquery.cookie-1.3.1.js"></script>
+    <script src="~/Scripts/Layout/jquery.steps.js"></script>
     <script src="~/Scripts/Layout/popper.js"></script>
     <script src="~/Scripts/Layout/bootstrap.js"></script>
     <link rel="stylesheet" href="~/Content/Layout/dx.light.css" />
@@ -21,9 +24,18 @@
         <div class="bg-menu border-right" id="sidebar-wrapper">
             <div class="sidebar-heading"><img src="~/Content/Layout/tt.png" width="40"/>&nbsp; TRANSPORT SUPPORT</div>
             <div class="list-group list-group-flush text-white">
-                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-user"></i> โปรไฟล์</a>
-                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="transport"><i class="fas fa-truck"></i> การขนส่ง</a>
-                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-user-friends"></i> บัญชี</a>
+                <h6 class="sidebar-heading-item px-3 mt-4 mb-1">โปรไฟล์</h6>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-truck-loading"></i> อุปกรณ์ขนส่ง</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-hard-hat"></i> อุปกรณ์เซฟตี้</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-user-tie"></i> พนักงานขับรถ</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-truck"></i> รถบรรทุก</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-user"></i> ลูกค้า</a>
+                <h6 class="sidebar-heading-item px-3 mt-4 mb-1">การขนส่ง</h6>
+                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="transport"><i class="fas fa-file-medical"></i> สร้างใบงาน</a>
+                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="transport"><i class="fas fa-file-upload"></i> อัปโหลดใบงาน</a>
+                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="transport"><i class="fas fa-file-alt"></i> รายงานใบงาน</a>
+                <h6 class="sidebar-heading-item px-3 mt-4 mb-1">บัญชี</h6>
+                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-user-cog"></i> จัดการบัญชี</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
