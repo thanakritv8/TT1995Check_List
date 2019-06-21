@@ -17,16 +17,12 @@
 </head>
 <body>
     <div class="d-flex" id="wrapper">
-
         <!-- Sidebar -->
         <div class="bg-menu border-right" id="sidebar-wrapper">
             <div class="sidebar-heading"><img src="~/Content/Layout/tt.png" width="40"/>&nbsp; TRANSPORT SUPPORT</div>
             <div class="list-group list-group-flush text-white">
-                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-user"></i> โปรไฟล์</a>
-                <a href="~/Home/ProfileData" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-stream"></i> โปรไฟล์ย่อย</a>
-                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-truck"></i> การขนส่ง</a>
-                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-clipboard-list"></i> รายการตรวจสอบ</a>
-                <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-clipboard"></i> รายงาน</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-user"></i> โปรไฟล์</a>
+                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="transport"><i class="fas fa-truck"></i> การขนส่ง</a>
                 <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-user-friends"></i> บัญชี</a>
             </div>
         </div>
@@ -71,6 +67,7 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
+
         </script>
 
     </div>

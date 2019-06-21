@@ -1,6 +1,6 @@
-﻿
-$(function () {
-    var previuos_menu = 'customer';
+﻿$(function () {
+    var previuos_menu = 'trans_equip';
+
     function getcustomer() {
         $.ajax({
             type: "POST",
@@ -38,36 +38,62 @@ $(function () {
             }
         });
     }
+
+    function gettransequip() {
+        console.log(equipment_transport);
+        dataGrid.option("dataSource", equipment_transport);
+    }
+
     var dataGrid = $("#gridContainer").dxDataGrid({
         //dataSource: customers,
         // columns: ["customer_id", "customer_name"],
         showBorders: true
     }).dxDataGrid("instance");
-    getcustomer();
+    gettransequip();
 
-
-    $('#equip').click(function () {
+    $('#trans_equip').click(function () {
         $('#' + previuos_menu).removeClass("active");
-        previuos_menu = 'equip';
+        previuos_menu = 'trans_equip';
         $('#' + previuos_menu).addClass("active");
-        //alert("The paragraph was clicked.");
-        getcountry();
+        gettransequip();
     });
     $('#customer').click(function () {
         $('#' + previuos_menu).removeClass("active");
         previuos_menu = 'customer';
         $('#' + previuos_menu).addClass("active");
-        //alert("The paragraph was clicked.");
         getcustomer();
     });
     $('#safety').click(function () {
         $('#' + previuos_menu).removeClass("active");
         previuos_menu = 'safety';
         $('#' + previuos_menu).addClass("active");
-        //alert("The paragraph was clicked.");
         getcustomer();
     });
 });
+
+var equipment_transport = [{
+    eq_tran_id: 1,
+    eq_name: "ซัฟฟอร์ตเหล็กคอย"
+}, {
+    eq_tran_id: 2,
+    eq_name: "เหล็กเสียบข้างพร้อมโซ่"
+}, {
+    eq_tran_id: 3,
+    eq_name: "สเตย์ผ้าใบ"
+}, {
+    eq_tran_id: 4,
+    eq_name: "โซ่+เกลียวเร่ง"
+}, {
+    eq_tran_id: 5,
+    eq_name: "ผ้าใบบาง-ชั้นใน ขนาด 5x7 เมตร"
+}, {
+    eq_tran_id: 6,
+    eq_name: "ผ้าใบหนา-ชั้นนอก 5x7 เมตร"
+}, {
+    eq_tran_id: 7,
+    eq_name: "ผ้าใบหนา-ชั้นนอก 5x16 เมตร"
+}];
+
 var customers = [{
     "ID": 1,
     "CompanyName": "Super Mart of the West",
