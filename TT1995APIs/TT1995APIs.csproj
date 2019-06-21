@@ -157,6 +157,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\Home\customer.js" />
     <Content Include="Scripts\Home\index.js" />
     <Content Include="Scripts\Layout\dx.all.js" />
     <Content Include="Scripts\Layout\jquery.min.js" />
@@ -194,6 +195,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ProfileData.cshtml" />
     <Content Include="Views\Home\TransportData.cshtml" />
+    <Content Include="Views\Home\CustomerData.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

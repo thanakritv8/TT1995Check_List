@@ -25,15 +25,15 @@
             <div class="sidebar-heading"><img src="~/Content/Layout/tt.png" width="40"/>&nbsp; TRANSPORT SUPPORT</div>
             <div class="list-group list-group-flush text-white">
                 <h6 class="sidebar-heading-item px-3 mt-4 mb-1">โปรไฟล์</h6>
-                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-truck-loading"></i> อุปกรณ์ขนส่ง</a>
-                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-hard-hat"></i> อุปกรณ์เซฟตี้</a>
-                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-user-tie"></i> พนักงานขับรถ</a>
-                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-truck"></i> รถบรรทุก</a>
-                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="index"><i class="fas fa-user"></i> ลูกค้า</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="menu1"><i class="fas fa-truck-loading"></i> อุปกรณ์ขนส่ง</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="menu2"><i class="fas fa-hard-hat"></i> อุปกรณ์เซฟตี้</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="menu3"><i class="fas fa-user-tie"></i> พนักงานขับรถ</a>
+                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="menu4"><i class="fas fa-truck"></i> รถบรรทุก</a>
+                <a href="~/Home/CustomerData" class="list-group-item list-group-item-action bg-menu" id="menu5"><i class="fas fa-user"></i> ลูกค้า</a>
                 <h6 class="sidebar-heading-item px-3 mt-4 mb-1">การขนส่ง</h6>
-                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="transport"><i class="fas fa-file-medical"></i> สร้างใบงาน</a>
-                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="transport"><i class="fas fa-file-upload"></i> อัปโหลดใบงาน</a>
-                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="transport"><i class="fas fa-file-alt"></i> รายงานใบงาน</a>
+                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="menu6"><i class="fas fa-file-medical"></i> สร้างใบงาน</a>
+                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="menu7"><i class="fas fa-file-upload"></i> อัปโหลดใบงาน</a>
+                <a href="~/Home/TransportData" class="list-group-item list-group-item-action bg-menu" id="menu8"><i class="fas fa-file-alt"></i> รายงานใบงาน</a>
                 <h6 class="sidebar-heading-item px-3 mt-4 mb-1">บัญชี</h6>
                 <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-user-cog"></i> จัดการบัญชี</a>
             </div>
@@ -74,14 +74,19 @@
         </div>
         <!-- /#page-content-wrapper -->
         <!-- Menu Toggle Script -->
-        <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-
-        </script>
+        
 
     </div>
 </body>
 </html>
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    var onPage = '@ViewBag.onPage';
+    console.log(onPage);
+   
+    $("#menu" + onPage).addClass("active");
+
+</script>

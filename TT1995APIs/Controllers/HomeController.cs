@@ -15,16 +15,25 @@ namespace TT1995APIs.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.onPage = 1;
             return View();
         }
 
         public ActionResult ProfileData()
         {
+            ViewBag.onPage = 2;
             return View();
         }
 
         public ActionResult TransportData()
         {
+            ViewBag.onPage = 3;
+            return View();
+        }
+
+        public ActionResult CustomerData()
+        {
+            ViewBag.onPage = 5;
             return View();
         }
 
