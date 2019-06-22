@@ -135,7 +135,7 @@
 
 .wizard > .content
 {
-    background: #eee;
+    background: #fff;
     display: block;
     margin: 0.5em;
     min-height: 30em;
@@ -158,7 +158,7 @@
     position: absolute;
     width: 100%;
     height: 95%;
-    padding: 2.5%;
+    padding: 1%;
 }
 
 .wizard > .content > .body ul
