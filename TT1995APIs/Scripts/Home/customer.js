@@ -28,6 +28,9 @@
     function get_customer() {
         var dataGrid = $('#gridCustomer').dxDataGrid({
             //dataSource: customers,
+            paging: {
+                pageSize: 10
+            },
             columns: [{
                 dataField: 'cus_id',
                 caption: 'รหัสลูกค้า'
@@ -70,6 +73,9 @@
         if (cus_id != 0) {
             var dataGrid = $('#gridCustomerAddress').dxDataGrid({
                 //dataSource: customers,
+                paging: {
+                    pageSize: 10
+                },
                 columns: [{
                     dataField: 'address_id',
                     caption: 'รหัสที่อยู่',
@@ -117,6 +123,9 @@
         if (cus_address_id != 0) {
             var dataGrid = $('#gridCustomerContact').dxDataGrid({
                 //dataSource: customers,
+                paging: {
+                    pageSize: 10
+                },
                 columns: [{
                     dataField: 'cus_contact_id',
                     caption: 'รหัสติดต่อ',
