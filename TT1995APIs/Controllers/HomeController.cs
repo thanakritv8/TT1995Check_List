@@ -19,6 +19,12 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
+        public ActionResult SafetyData()
+        {
+            ViewBag.onPage = 2;
+            return View();
+        }
+
         public ActionResult ProfileData()
         {
             ViewBag.onPage = 2;
