@@ -272,3 +272,13 @@ C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.csproj
 C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.csproj.CopyComplete
 C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.dll
 C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.pdb
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\SqlServerTypes\x64\msvcr120.dll
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\SqlServerTypes\x86\msvcr120.dll
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.ReportViewer.Common.dll
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.ReportViewer.WebForms.DLL
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.SqlServer.Types.dll
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\RdlCompile.cache
+F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\RdlCompile.compiled
