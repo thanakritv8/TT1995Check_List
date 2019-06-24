@@ -28,15 +28,15 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
-        public ActionResult ProfileData()
+        public ActionResult EmployeeData()
         {
-            ViewBag.onPage = 2;
+            ViewBag.onPage = 3;
             return View();
         }
 
-        public ActionResult TransportData()
+        public ActionResult TruckData()
         {
-            ViewBag.onPage = 3;
+            ViewBag.onPage = 4;
             return View();
         }
 
@@ -45,18 +45,27 @@ namespace TT1995APIs.Controllers
             ViewBag.onPage = 5;
             return View();
         }
-        #endregion
 
-        private DataTable GetWeekSheetReport(string id)
-        {            
-            Models.Home.DataSetGetWorkSheetTableAdapters.sp_GetWorkSheetReportTableAdapter da = new Models.Home.DataSetGetWorkSheetTableAdapters.sp_GetWorkSheetReportTableAdapter();
-            DataSetGetWorkSheet.sp_GetWorkSheetReportDataTable dt = new DataSetGetWorkSheet.sp_GetWorkSheetReportDataTable();
-
-            da.Fill(dt, id);
-            return dt;
+        public ActionResult CreateWorksheet()
+        {
+            ViewBag.onPage = 6;
+            return View();
         }
 
-        #region ActionReport
+        public ActionResult UploadWorksheet()
+        {
+            ViewBag.onPage = 7;
+            return View();
+        }
+
+        public ActionResult ReportWorksheet()
+        {
+            ViewBag.onPage = 8;
+            return View();
+        }
+        #endregion        
+
+        #region ActionExportReport
         public ActionResult ExportWorkSheet(string id)
         {
             //link use Home/ExportWorkSheet?id=2
@@ -99,6 +108,14 @@ namespace TT1995APIs.Controllers
             System.IO.File.Delete(Server.MapPath("~/Report/" + FileName));
             Response.Close();
             Response.End();
+        }
+
+        private DataTable GetWeekSheetReport(string id)
+        {
+            Models.Home.DataSetGetWorkSheetTableAdapters.sp_GetWorkSheetReportTableAdapter da = new Models.Home.DataSetGetWorkSheetTableAdapters.sp_GetWorkSheetReportTableAdapter();
+            DataSetGetWorkSheet.sp_GetWorkSheetReportDataTable dt = new DataSetGetWorkSheet.sp_GetWorkSheetReportDataTable();
+            da.Fill(dt, id);
+            return dt;
         }
         #endregion
 

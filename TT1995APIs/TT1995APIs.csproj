@@ -245,13 +245,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\ProfileData.cshtml" />
-    <Content Include="Views\Home\TransportData.cshtml" />
+    <Content Include="Views\Home\EmployeeData.cshtml" />
     <Content Include="Views\Home\CustomerData.cshtml" />
     <Content Include="Views\Home\SafetyData.cshtml" />
     <Content Include="Views\Home\CreateWorksheet.cshtml" />
     <Content Include="Views\Home\UploadWorksheet.cshtml" />
     <Content Include="Views\Home\ReportWorksheet.cshtml" />
+    <Content Include="Views\Home\TruckData.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
