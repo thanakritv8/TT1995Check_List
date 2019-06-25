@@ -186,6 +186,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Scripts\Home\customer.js" />
+    <Content Include="Scripts\Home\customerV2.js" />
     <Content Include="Scripts\Home\index.js" />
     <Content Include="Scripts\Home\SafetyData.js" />
     <Content Include="Scripts\Layout\bootstrap.js" />
@@ -252,6 +253,7 @@
     <Content Include="Views\Home\UploadWorksheet.cshtml" />
     <Content Include="Views\Home\ReportWorksheet.cshtml" />
     <Content Include="Views\Home\TruckData.cshtml" />
+    <Content Include="Views\Home\customerV2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

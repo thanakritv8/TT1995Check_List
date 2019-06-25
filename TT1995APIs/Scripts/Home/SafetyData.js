@@ -8,9 +8,10 @@
     });
     var equipment_safety_select;
 
-    $("ul li:nth-child(2)").addClass("disabled");
-    $("a:contains('Next')").attr('href', '')
-    
+    //$("ul li:nth-child(2)").addClass("disabled");
+    $("a:contains('Next')").attr('href', '');
+    $('ul[role|="menu"] li:nth-child(2)').addClass("disabled");
+
     $('a:contains("Next")').click(function () {
         var data_safety_type_filter = equipment_safety_type.filter(function (arr) {
             return arr.eq_safety_id == equipment_safety_select;
@@ -25,12 +26,13 @@
             mode: "single"
         },
         onSelectionChanged: function (selectedItems) {
-            $("ul li:nth-child(2)").removeClass("disabled")
-            $("a:contains('Next')").attr('href', '#next')
+            //$("ul li:nth-child(2)").removeClass("disabled")
+            $('ul[role|="menu"] li:nth-child(2)').removeClass("disabled");
+            $("a:contains('Next')").attr('href', '#next');
             var data = selectedItems.selectedRowsData[0];
             equipment_safety_select = data.eq_safety_id;
 
-            
+
 
             //console.log(data);
         },
@@ -42,7 +44,7 @@
         showBorders: true
     }).dxDataGrid("instance");
 
-    
+
 
     var grid_equipment_safety_type = $("#grid_equipment_safety_type").dxDataGrid({
         keyExpr: "eq_safety_type_id",

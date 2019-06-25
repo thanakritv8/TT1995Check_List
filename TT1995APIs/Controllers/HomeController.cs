@@ -46,6 +46,12 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
+        public ActionResult CustomerV2()
+        {
+            ViewBag.onPage = 5;
+            return View();
+        }
+
         public ActionResult CreateWorksheet()
         {
             ViewBag.onPage = 6;
