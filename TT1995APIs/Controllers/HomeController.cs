@@ -28,12 +28,11 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
-        public ActionResult EmployeeData()
+        public ActionResult DriverData()
         {
             ViewBag.onPage = 3;
             return View();
         }
-
         public ActionResult TruckData()
         {
             ViewBag.onPage = 4;

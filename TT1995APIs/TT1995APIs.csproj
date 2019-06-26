@@ -185,15 +185,20 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\Home\CreateWorksheet.js" />
     <Content Include="Scripts\Home\customer.js" />
     <Content Include="Scripts\Home\customerV2.js" />
+    <Content Include="Scripts\Home\Driver.js" />
     <Content Include="Scripts\Home\index.js" />
     <Content Include="Scripts\Home\SafetyData.js" />
+    <Content Include="Scripts\Home\Truck.js" />
+    <Content Include="Scripts\Layout\additional-methods.js" />
     <Content Include="Scripts\Layout\bootstrap.js" />
     <Content Include="Scripts\Layout\dx.all.js" />
     <Content Include="Scripts\Layout\jquery.cookie-1.3.1.js" />
     <Content Include="Scripts\Layout\jquery.min.js" />
     <Content Include="Scripts\Layout\jquery.steps.js" />
+    <Content Include="Scripts\Layout\jquery.validate.js" />
     <Content Include="Scripts\Layout\popper.js" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -246,7 +251,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\EmployeeData.cshtml" />
+    <Content Include="Views\Home\DriverData.cshtml" />
     <Content Include="Views\Home\CustomerData.cshtml" />
     <Content Include="Views\Home\SafetyData.cshtml" />
     <Content Include="Views\Home\CreateWorksheet.cshtml" />
@@ -270,6 +275,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Report\ReportTest.rdlc" />
     <EmbeddedResource Include="Report\WorkSheet.rdlc" />
   </ItemGroup>
   <PropertyGroup>
