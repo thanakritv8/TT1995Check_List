@@ -189,7 +189,9 @@
     <Content Include="Scripts\Home\customer.js" />
     <Content Include="Scripts\Home\customerV2.js" />
     <Content Include="Scripts\Home\Driver.js" />
+    <Content Include="Scripts\Home\FollowWorkSheet.js" />
     <Content Include="Scripts\Home\index.js" />
+    <Content Include="Scripts\Home\ReportWorkSheet.js" />
     <Content Include="Scripts\Home\SafetyData.js" />
     <Content Include="Scripts\Home\Truck.js" />
     <Content Include="Scripts\Layout\additional-methods.js" />
@@ -255,7 +257,7 @@
     <Content Include="Views\Home\CustomerData.cshtml" />
     <Content Include="Views\Home\SafetyData.cshtml" />
     <Content Include="Views\Home\CreateWorksheet.cshtml" />
-    <Content Include="Views\Home\UploadWorksheet.cshtml" />
+    <Content Include="Views\Home\FollowWorksheet.cshtml" />
     <Content Include="Views\Home\ReportWorksheet.cshtml" />
     <Content Include="Views\Home\TruckData.cshtml" />
     <Content Include="Views\Home\customerV2.cshtml" />

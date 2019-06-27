@@ -1,7 +1,42 @@
 ﻿
 @{
-    ViewBag.Title = "ReportWorksheet";
+    ViewBag.Title = "รายงานใบงาน";
 }
 
-<h2>ReportWorksheet</h2>
+<div class="header-title">
+    รายงานใบงาน
+</div>
+<div class="container-fluid">
+    
+    <div style="margin-top: 20px;background-color:white;">
+        <div class="demo-container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Start Date : </div>
+                        <div class="dx-field-value">
+                            <div id="date_start"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="dx-field">
+                        <div class="dx-field-label">End Date : </div>
+                        <div class="dx-field-value">
+                            <div id="date_end"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="dx-field">
+                        <div id="validate" class="validate"></div>
+                    </div>
+                </div>
+            </div>           
+            
+            <div class="mt-2" id="chart"></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Home/ReportWorkSheet.js"></script>
 

@@ -57,7 +57,7 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
-        public ActionResult UploadWorksheet()
+        public ActionResult FollowWorksheet()
         {
             ViewBag.onPage = 7;
             return View();
