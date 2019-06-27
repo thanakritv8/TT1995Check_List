@@ -2,6 +2,9 @@
     worksheet: "รออนุมัติ",
     count: 3
 }, {
+    worksheet: "อนุมัติ",
+    count: 8
+}, {
     worksheet: "กำลังทำงาน",
     count: 6
 }, {
@@ -46,4 +49,5 @@ $(function () {
             }
         }
     });
+
 });

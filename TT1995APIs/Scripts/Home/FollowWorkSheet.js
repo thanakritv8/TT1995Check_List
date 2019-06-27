@@ -8,7 +8,8 @@
             "detail": "View",
             "tran_status": "เสร็จสิ้น",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "",
         },
         {
             "tran_id": 'TT000002',
@@ -17,7 +18,8 @@
             "detail": "View",
             "tran_status": "กำลังทำงาน",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "อัพโหลดไฟล์",
         },
         {
             "tran_id": 'TT000003',
@@ -26,7 +28,8 @@
             "detail": "View",
             "tran_status": "กำลังทำงาน",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "อัพโหลดไฟล์",
         },
         {
             "tran_id": 'TT000004',
@@ -35,7 +38,9 @@
             "detail": "View",
             "tran_status": "เสร็จสิ้น",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "",
+
         },
         {
             "tran_id": 'TT000005',
@@ -44,7 +49,8 @@
             "detail": "View",
             "tran_status": "เสร็จสิ้น",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "",
         },
         {
             "tran_id": 'TT000006',
@@ -53,7 +59,8 @@
             "detail": "View",
             "tran_status": "รออนุมัติ",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "อนุมัติ",
         },
         {
             "tran_id": 'TT000007',
@@ -62,7 +69,8 @@
             "detail": "View",
             "tran_status": "เสร็จสิ้น",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "",
         },
         {
             "tran_id": 'TT000008',
@@ -71,7 +79,8 @@
             "detail": "View",
             "tran_status": "กำลังทำงาน",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "อัพโหลดไฟล์",
         },
         {
             "tran_id": 'TT000009',
@@ -80,7 +89,9 @@
             "detail": "View",
             "tran_status": "รออนุมัติ",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "อนุมัติ",
+
         },
         {
             "tran_id": 'TT0000010',
@@ -89,7 +100,8 @@
             "detail": "View",
             "tran_status": "เสร็จสิ้น",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "",
         },
         {
             "tran_id": 'TT0000011',
@@ -98,18 +110,53 @@
             "detail": "View",
             "tran_status": "เสร็จสิ้น",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "",
         },
         {
             "tran_id": 'TT0000012',
             "order_id": 'PO0000012',
             "tran_name": "งาน L",
-            "detail": "View",
+            "detail": "View",            
             "tran_status": "รออนุมัติ",
             "create_date": "2019.01.01",
-            "create_by": "ธนกฤต"
+            "create_by": "ธนกฤต",
+            "jobWork": "อนุมัติ",
         }
     ];
+
+    var popup_job_work = $("#popup_jobWork").dxPopup({
+        visible: false,
+        width: "60%",
+        height: "70%",
+        showTitle: true,
+        title: "กิจกรรม",
+        contentTemplate: function (content) {
+            return $("<div id='fileuploader'></div><div class = 'content' id = 'selected-files'></div >");
+        }
+    }).dxPopup("instance");
+
+    function popup_fileUploader() {
+        var fileUploader = $("#fileuploader").dxFileUploader({
+            multiple: false,
+            accept: "*",
+            value: [],
+            uploadMode: "instantly",
+            uploadUrl: "https://js.devexpress.com/Content/Services/upload.aspx",
+            onValueChanged: function (e) {
+                var files = e.value;
+                if (files.length > 0) {
+                    $("#selected-files .selected-item").remove();
+                    $.each(files, function (i, file) {                        
+                        $selectedItem.appendTo($("#selected-files"));
+                    });
+                    $("#selected-files").show();
+                }
+                else
+                    $("#selected-files").hide();
+            }
+        }).dxFileUploader("instance");
+    }
 
 
     var show_column = [
@@ -137,6 +184,25 @@
             }
         },
         {
+            dataField: "jobWork",
+            caption: "กิจกรรม",
+            cellTemplate: function (container, options) {
+                $('<a style="color:green;font-weight:bold;" />').addClass('dx-link')
+                    .text(options.value)
+                    .on('dxclick', function (e) {
+                        if (options.value == "อนุมัติ") {
+                            var result = DevExpress.ui.dialog.confirm("<i>คุณต้องการอนุมัติใช่มั้ย?</i>", "Confirm");
+                            //result.done(function (dialogResult) {
+                            //    alert(dialogResult ? "Confirmed" : "Canceled");
+                            //});
+                        } else {
+                            $("#popup_jobWork").dxPopup("show");
+                            popup_fileUploader();
+                        }                        
+                    }).appendTo(container);
+            }
+        },
+        {
             dataField: "tran_status",
             caption: "สถานะ",
         },
@@ -150,7 +216,7 @@
         },
     ];
 
-    var grid_driver = $("#grid_follow_worksheet").dxDataGrid({
+    var grid_follow_worksheet = $("#grid_follow_worksheet").dxDataGrid({
         dataSource: data_follow_worksheet,
         keyExpr: "tran_id",
         columns: show_column,
