@@ -1,7 +1,17 @@
 ﻿@{
     ViewBag.Title = "CreateWorksheet";
 }
-
+<style>
+    .wizard .content {
+        min-height: 100px;
+    }
+    .wizard .content > .body {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        position: relative;
+    }
+</style>
 <div class="header-title">
     สร้างใบงาน
 </div>
@@ -9,49 +19,39 @@
     <form id="example-advanced-form" action="#" style="margin-top: 15px;">
         <h3>ลูกค้า</h3>
         <fieldset>
-            <div id="form"></div>
-            <!--<legend>ลูกค้า</legend>
-            <label for="customer">ลูกค้า *</label>
-            <div id="customer"></div>
-            <input id="userName-2" name="userName" type="text" class="required">
-            <label for="address_customer" class="mt-3">ที่อยู่ลูกค้า *</label>
-            <select id="address_customer" class="form-control">
-                <option value="" selected disabled>เลือกที่อยู่ลูกค้า</option>
-            </select>
-            <input id="password-2" name="password" type="text" class="required">
-            <label for="confirm-2" class="mt-3">ติดต่อลูกค้า *</label>
-            <input id="confirm-2" name="confirm" type="text" class="required">
-            <p class="mt-4">(*) จำเป็นต้องใส่</p>-->
+            <p style="font-size: 24px;">ข้อมูลลูกค้า</p>
+            <hr />
+            <div id="form_1"></div>
         </fieldset>
 
-        <h3>อุปกรณ์ขนส่ง</h3>
+        <h3>รถบรรทุก</h3>
         <fieldset>
-            <legend>Profile Information</legend>
-            <label for="name-2">First name *</label>
-            <input id="name-2" name="name" type="text" class="required">
-            <label for="surname-2">Last name *</label>
-            <input id="surname-2" name="surname" type="text" class="required">
-            <label for="email-2">Email *</label>
-            <input id="email-2" name="email" type="text" class="required email">
-            <label for="address-2">Address</label>
-            <input id="address-2" name="address" type="text">
-            <label for="age-2">Age (The warning step will show up if age is less than 18) *</label>
-            <input id="age-2" name="age" type="text" class="required number">
-            <p>(*) Mandatory</p>
+            <p style="font-size: 24px;">ข้อมูลรถบรรทุก</p>
+            <hr />
+            <div id="form_2"></div>
+            <p class="mt-3" style="font-size: 24px;">ข้อมูลพนักงานขับ</p>
+            <hr />
+            <div id="form_3"></div>
         </fieldset>
 
-        <h3>อุปกรณ์เซฟตี้</h3>
+        <h3>อุปกรณ์</h3>
         <fieldset>
-            <legend>You are to young</legend>
-
-            <p>Please go away ;-)</p>
+            <p style="font-size: 24px;">เอกสาร</p>
+            <hr />
+            <div id="form_4"></div>
+            <p class="mt-3" style="font-size: 24px;">อุปกรณ์ขนส่ง</p>
+            <hr />
+            <div id="form_5"></div>
+            <p class="mt-3" style="font-size: 24px;">อุปกรณ์เซฟตี้</p>
+            <hr />
+            <div id="form_6"></div>
         </fieldset>
 
-        <h3>พนักงานขับรถ</h3>
+        <h3>วิธีการ</h3>
         <fieldset>
-            <legend>Terms and Conditions</legend>
-
-            <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+            <p style="font-size: 24px;">วิธีการ</p>
+            <hr />
+            <div id="form_7"></div>
         </fieldset>
     </form>
 </div>

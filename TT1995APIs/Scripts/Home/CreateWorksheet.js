@@ -1,8 +1,9 @@
 ﻿$(function () {
+
+    // Customer Form
     var customer_current_select;
     var branch_current_select;
-    var formWidget = $("#form").dxForm({
-
+    var formWidget = $("#form_1").dxForm({
         formData: formData,
         readOnly: false,
         showColonAfterLabel: true,
@@ -63,12 +64,13 @@
             {
                 colSpan: 10,
                 dataField: "address",
-                editorType: "dxTextBox",
+                editorType: "dxTextArea",
                 label: {
                     text: formData.label_address,
-
                 },
                 editorOptions: {
+                    height: 90,
+                    readOnly: true
                 }
 
             },
@@ -101,15 +103,188 @@
 
                 },
                 editorOptions: {
-
-                    height: 90
+                    height: 90,
+                    readOnly: true
                 }
             },
             ]
         },
         ]
     }).dxForm("instance");
+    // End Customer Form
 
+    // Truck Form
+    var form_2 = $("#form_2").dxForm({
+        formData: formData,
+        readOnly: false,
+        showColonAfterLabel: true,
+        showValidationSummary: true,
+        validationGroup: "customerData",
+        items: [{
+            itemType: "group",
+            colCount: 10,
+            items: [
+                {
+                    dataField: "truck_head",
+                    editorType: "dxSelectBox",
+                    editorOptions: {
+                        dataSource: truck_head_select,
+                        key: "license_id",
+                        displayExpr: 'license_car',
+                        valueExpr: 'license_id',
+                        onValueChanged: function (e) {
+                            console.log(form_2);
+                            var previousValue = e.previousValue;
+                            var newValue = e.value;
+                        }
+                    },
+
+                    label: {
+                        text: formData.label_truck_head
+                    },
+                    colSpan: 10
+                },
+                {
+                    dataField: "truck_tail",
+                    editorType: "dxSelectBox",
+                    editorOptions: {
+                        dataSource: truck_tail_select,
+                        key: "license_id",
+                        displayExpr: 'license_car',
+                        valueExpr: 'license_id',
+                        onValueChanged: function (e) {
+                            console.log(form_2);
+                            var previousValue = e.previousValue;
+                            var newValue = e.value;
+                        }
+                    },
+
+                    label: {
+                        text: formData.label_truck_tail
+                    },
+                    colSpan: 10
+                },
+            ]
+        }]
+    }).dxForm("instance");
+    // End Truck Form
+
+    // Driver Form
+    $("#form_3").dxDataGrid({
+        dataSource: driver,
+        columns: [
+          {
+              dataField: "Check",
+              caption: "เลือก",
+              dataType: "boolean",
+              width: 100
+          },
+          {
+              dataField: "driver_name",
+              caption: "ชื่อ",
+          }
+        ]
+    }
+    )
+    //End Driver Form
+
+    // Document Form
+    $("#form_4").dxDataGrid({
+        dataSource: document_tran,
+        columns: [      
+          {
+              dataField: "doc_name",
+              caption: "ชื่อเอกสาร"
+          },
+          {
+              dataField: "check_go",
+              caption: "ไป",
+              dataType: "boolean"
+          }
+          ,
+          {
+              dataField: "check_back",
+              caption: "กลับ",
+              dataType: "boolean"
+          }
+        ]
+    }
+    )
+    // End Document Form
+
+    // Equip Transport
+    $("#form_5").dxDataGrid({
+        dataSource: equipment_transport,
+        columns: [
+          {
+              dataField: "Check",
+              caption: "เลือก",
+              dataType: "boolean",
+              width: 100
+          },
+          {
+              dataField: "eq_name",
+              caption: "ชื่ออุปกรณ์ขนส่ง",
+          }
+        ]
+    }
+    )
+    // End Equip Transport
+
+    // Equip Safety
+    $("#form_6").dxDataGrid({
+        dataSource: equipment_safety,
+        columns: [
+          {
+              dataField: "Check",
+              caption: "เลือก",
+              dataType: "boolean",
+              width: 100
+          },
+          {
+              dataField: "eq_name",
+              caption: "ชื่ออุปกรณ์เซฟตี้",
+          }
+        ]
+    }
+    )
+    // End Equip Safety
+
+    var form_7 = $("#form_7").dxForm({
+        formData: formData,
+        readOnly: false,
+        showColonAfterLabel: true,
+        showValidationSummary: true,
+        validationGroup: "customerData",
+        items: [{
+            itemType: "group",
+            colCount: 10,
+            items: [
+                {
+                    colSpan: 10,
+                    dataField: "method_special",
+                    editorType: "dxTextArea",
+                    label: {
+                        text: formData.label_method_special
+                    },
+                    editorOptions: {
+                        height: 90
+                    }
+                },
+                {
+                    colSpan: 10,
+                    dataField: "method_supply",
+                    editorType: "dxTextArea",
+                    label: {
+                        text: formData.labelmethod_supply
+                    },
+                    editorOptions: {
+                        height: 90
+                    }
+                }
+            ]
+        }]
+    }).dxForm("instance");
    
     function show_branch(cs_id) {
         // alert(cs_id);
@@ -144,86 +319,6 @@
         formWidget.option('items[0].items[4].editorOptions.value', 'ตำแหน่ง: ' + data_contact_filter[0].position + ', ไลน์ไอดี: ' + data_contact_filter[0].line + ', โทร: ' + data_contact_filter[0].tel + ', อีเมล์: ' + data_contact_filter[0].email);
     }
 
-    function show_grid_product(bs_id) {
-        var data_product_filter = product.filter(function (arr) {
-            return arr.bs_id == bs_id;
-        });
-        // console.log(data_contact_filter);
-        grid_product.option('dataSource', data_product_filter);
-    }
-
-    var grid_product = $("#grid_product").dxDataGrid({
-        // dataSource: product,
-        keyExpr: "pro_id",
-        editing: {
-            allowUpdating: true, // Enables editing
-            allowAdding: true, // Enables insertion
-            allowDeleting: true // Enables removing
-        },
-        showBorders: true
-    }).dxDataGrid("instance");
-
-    function show_popup(e, title, table) {
-        console.log(e);
-        popup_add_customer.option('title', title);
-        popup_add_customer._options.contentTemplate = function (content) {
-            var maxHeight = $("#popup_add_customer .dx-overlay-content").height() - 150;
-            content.append("<div id='grid_add_data' style='max-height: " + maxHeight + "px;' ></div>");
-        }
-
-        $("#popup_add_customer").dxPopup("show");
-
-        if (table == 'customer') {
-            show_grid_in_popup(columns_add_customer, customer_select);
-        } else if (table == 'branch') {
-            show_grid_in_popup(columns_add_branch, branch_select.filter(function (arr) { return arr.cs_id == customer_current_select; }));
-        } else if (table == 'contact') {
-            show_grid_in_popup(columns_add_contact, contact_select.filter(function (arr) { return arr.bs_id == branch_current_select; }));
-        }
-
-    }
-
-    function filter(data_full) {
-        var data_filter = data_full.filter(function (arr) { return arr.bs_id == bs_id; });
-        return data_product_filter;
-    }
-
-    function show_grid_in_popup(show_column, data_source) {
-        var grid_add_data = $("#grid_add_data").dxDataGrid({
-            dataSource: data_source,
-            columns: show_column,
-            editing: {
-                allowUpdating: true,
-                allowAdding: true,
-                allowDeleting: true
-            },
-            showBorders: true,
-            height: 'auto',
-            scrolling: {
-                mode: "virtual"
-            },
-            searchPanel: {
-                visible: true,
-                width: "auto",
-                placeholder: "Search..."
-            }
-        }).dxDataGrid('instance');
-    }
-
-    var popup_add_customer = $("#popup_add_customer").dxPopup({
-        visible: false,
-        width: "60%",
-        height: "70%",
-        showTitle: true,
-        title: "ประวัติ",
-        contentTemplate: function (content) {
-            return $("<div id='grid_add_data'>test</div>");
-        }
-    }).dxPopup("instance");
-
-
-
-
 });
 
 
@@ -238,6 +333,14 @@ var formData = {
     "label_contact": "เลือกผู้ติดต่อ",
     "data_contact": "",
     "label_data_contact": "ข้อมูลติดต่อ",
+    "truck_head": "",
+    "label_truck_head": "เลือกหัวลาก",
+    "truck_tail": "",
+    "label_truck_tail": "เลือกหางกึ่งพ่วง",
+    "method_special": "",
+    "label_method_special": "วิธีการพิเศษ (ควบคุมเฉพาะงาน)",
+    "method_supply": "",
+    "labelmethod_supply": "วิธีการเสริม (คำแนะนำ)"
     // "Date": null,
     // "Country": "",
     // "City": "",
@@ -390,156 +493,417 @@ var contact_select = [{
 }
 ];
 
-var product = [
+var truck_head_select = [
     {
-        pro_id: 1,
-        name: 'CO2',
-        condition: '18 ตัน ควรโหลดไม่เกิน 18.50 ตัน',
-        style_transport: 'บรรจุถัง ขนส่งทางบก บร',
-        method_pack: 'บรรจุถัง',
-        fleet: 'ต่างประเทศ',
-        truck_number: 'A123-9807-009',
-        special_method: '- รอถังเย็นก่อนโหลดงาน 30 นาที',
-        supplement_method: '- รองไม้ที่ล้อ กันรถไหล',
-        bs_id: 1
+        "license_id": 2,
+        "number_car": 14,
+        "license_car": "70-2175",
+        "mi_expired": "11/22/2019",
+        "ai_expired": "NULL",
+        "ei_expired": "NULL",
+        "dpi_expired": "4/30/2019",
+        "tax_expired": "6/30/2019",
+        "lcf_expired": "View"
     },
     {
-        pro_id: 2,
-        name: '',
-        condition: '',
-        style_transport: '',
-        method_pack: '',
-        fleet: '',
-        truck_number: '',
-        special_method: '',
-        supplement_method: '',
-        bs_id: 2
+        "license_id": 9,
+        "number_car": 9,
+        "license_car": "70-2018",
+        "mi_expired": "2/7/2019",
+        "ai_expired": "NULL",
+        "ei_expired": "NULL",
+        "dpi_expired": "5/1/2020",
+        "tax_expired": "12/31/2019",
+        "lcf_expired": "View"
     },
     {
-        pro_id: 3,
-        name: '',
-        condition: '',
-        style_transport: '',
-        method_pack: '',
-        fleet: '',
-        truck_number: '',
-        special_method: '',
-        supplement_method: '',
-        bs_id: 3
+        "license_id": 11,
+        "number_car": 1,
+        "license_car": "70-2174",
+        "mi_expired": "10/21/2019",
+        "ai_expired": "6/30/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "4/30/2019",
+        "tax_expired": "6/30/2019",
+        "lcf_expired": "View"
     },
     {
-        pro_id: 4,
-        name: '',
-        condition: '',
-        style_transport: '',
-        method_pack: '',
-        fleet: '',
-        truck_number: '',
-        special_method: '',
-        supplement_method: '',
-        bs_id: 4
+        "license_id": 13,
+        "number_car": 17,
+        "license_car": "70-2397",
+        "mi_expired": "9/17/2019",
+        "ai_expired": "9/30/2018",
+        "ei_expired": "NULL",
+        "dpi_expired": "NULL",
+        "tax_expired": "9/30/2019",
+        "lcf_expired": "View"
     },
     {
-        pro_id: 5,
-        name: '',
-        condition: '',
-        style_transport: '',
-        method_pack: '',
-        fleet: '',
-        truck_number: '',
-        special_method: '',
-        supplement_method: '',
-        bs_id: 5
+        "license_id": 14,
+        "number_car": 3,
+        "license_car": "70-2477",
+        "mi_expired": "9/25/2019",
+        "ai_expired": "6/30/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "6/16/2019",
+        "tax_expired": "6/30/2019",
+        "lcf_expired": "View"
     },
-];
-
-var columns_add_customer = [
     {
-        dataField: "name",
-        caption: "ชื่อ",
+        "license_id": 15,
+        "number_car": 5,
+        "license_car": "70-2287",
+        "mi_expired": "NULL",
+        "ai_expired": "6/17/2019",
+        "ei_expired": "NULL",
+        "dpi_expired": "NULL",
+        "tax_expired": "2/26/2019",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 16,
+        "number_car": 6,
+        "license_car": "70-1660",
+        "mi_expired": "9/2/2019",
+        "ai_expired": "3/31/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "4/30/2019",
+        "tax_expired": "3/31/2020",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 17,
+        "number_car": 60,
+        "license_car": "70-7569",
+        "mi_expired": "10/31/2019",
+        "ai_expired": "9/30/2019",
+        "ei_expired": "NULL",
+        "dpi_expired": "NULL",
+        "tax_expired": "9/30/2019",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 18,
+        "number_car": 12,
+        "license_car": "70-2039",
+        "mi_expired": "8/9/2019",
+        "ai_expired": "6/30/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "5/1/2020",
+        "tax_expired": "6/28/2018",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 19,
+        "number_car": 10,
+        "license_car": "70-2531",
+        "mi_expired": "8/15/2019",
+        "ai_expired": "6/30/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "4/30/2019",
+        "tax_expired": "6/30/2019",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 20,
+        "number_car": 8,
+        "license_car": "70-1934",
+        "mi_expired": "8/9/2019",
+        "ai_expired": "3/31/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "4/30/2020",
+        "tax_expired": "3/31/2020",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 22,
+        "number_car": 22,
+        "license_car": "70-3019",
+        "mi_expired": "9/10/2019",
+        "ai_expired": "6/30/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "4/30/2019",
+        "tax_expired": "6/30/2019",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 23,
+        "number_car": 20,
+        "license_car": "70-9093",
+        "mi_expired": "4/18/2020",
+        "ai_expired": "6/30/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "NULL",
+        "tax_expired": "6/30/2019",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 24,
+        "number_car": 21,
+        "license_car": "70-2808",
+        "mi_expired": "3/28/2020",
+        "ai_expired": "3/31/2019",
+        "ei_expired": "12/15/2019",
+        "dpi_expired": "5/1/2020",
+        "tax_expired": "3/31/2020",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 25,
+        "number_car": 19,
+        "license_car": "70-1262",
+        "mi_expired": "3/14/2020",
+        "ai_expired": "3/31/2019",
+        "ei_expired": "NULL",
+        "dpi_expired": "4/30/2019",
+        "tax_expired": "3/31/2020",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 26,
+        "number_car": 7,
+        "license_car": "70-1936",
+        "mi_expired": "11/7/2019",
+        "ai_expired": "3/31/2020",
+        "ei_expired": "NULL",
+        "dpi_expired": "4/30/2019",
+        "tax_expired": "3/31/2019",
+        "lcf_expired": "View"
+    },
+    {
+        "license_id": 28,
+        "number_car": 23,
+        "license_car": "70-2782",
+        "mi_expired": "8/18/2019",
+        "ai_expired": "3/31/2019",
+        "ei_expired": "12/15/2019",
+        "dpi_expired": "5/1/2020",
+        "tax_expired": "3/31/2020",
+        "lcf_expired": "View"
     }
 ];
 
-var columns_add_branch = [
+var truck_tail_select = [
     {
-        dataField: "branch",
-        caption: "สาขา",
+        "license_id": 96,
+        "number_car": "T-020-S2",
+        "license_car": "70-2132",
+        "mi_expired": "NULL",
+        "ai_expired": "12/31/2019",
+        "ei_expired": "NULL",
+        "dpi_expired": "NULL",
+        "tax_expired": "12/31/2019",
+        "lcf_expired": "View"
     },
-    {
-        dataField: "house_no",
-        caption: "เลขที่",
-    },
-    {
-        dataField: "sub_district",
-        caption: "ตำบล",
-    },
-    {
-        dataField: "district",
-        caption: "อำเภอ",
-    },
-    {
-        dataField: "province",
-        caption: "จังหวัด",
-    },
-    {
-        dataField: "country",
-        caption: "ประเทศ",
-    },
+        {
+            "license_id": 97,
+            "number_car": "T-001",
+            "license_car": "71-8614",
+            "mi_expired": "5/17/2019",
+            "ai_expired": "6/30/2019",
+            "ei_expired": "NULL",
+            "dpi_expired": "NULL",
+            "tax_expired": "NULL",
+            "lcf_expired": "View"
+        },
+        {
+            "license_id": 98,
+            "number_car": "T-002",
+            "license_car": "71-1468",
+            "mi_expired": "5/17/2020",
+            "ai_expired": "3/31/2020",
+            "ei_expired": "NULL",
+            "dpi_expired": "NULL",
+            "tax_expired": "3/30/2020",
+            "lcf_expired": "View"
+        },
+        {
+            "license_id": 99,
+            "number_car": "T-003",
+            "license_car": "71-1469",
+            "mi_expired": "5/17/2020",
+            "ai_expired": "3/31/2020",
+            "ei_expired": "NULL",
+            "dpi_expired": "NULL",
+            "tax_expired": "3/30/2020",
+            "lcf_expired": "View"
+        },
+        {
+            "license_id": 100,
+            "number_car": "T-019",
+            "license_car": "71-6101",
+            "mi_expired": "5/16/2020",
+            "ai_expired": "12/31/2019",
+            "ei_expired": "NULL",
+            "dpi_expired": "NULL",
+            "tax_expired": "12/31/2019",
+            "lcf_expired": "View"
+        },
+        {
+            "license_id": 101,
+            "number_car": "T-004",
+            "license_car": "71-1470",
+            "mi_expired": "5/17/2020",
+            "ai_expired": "3/31/2019",
+            "ei_expired": "NULL",
+            "dpi_expired": "NULL",
+            "tax_expired": "3/31/2020",
+            "lcf_expired": "View"
+        },
+        {
+            "license_id": 102,
+            "number_car": "T-018",
+            "license_car": "71-6534",
+            "mi_expired": "5/16/2020",
+            "ai_expired": "6/30/2020",
+            "ei_expired": "NULL",
+            "dpi_expired": "NULL",
+            "tax_expired": "6/30/2019",
+            "lcf_expired": "View"
+        },
+        {
+            "license_id": 103,
+            "number_car": "T-005",
+            "license_car": "71-1466",
+            "mi_expired": "5/17/2020",
+            "ai_expired": "3/31/2019",
+            "ei_expired": "NULL",
+            "dpi_expired": "NULL",
+            "tax_expired": "3/30/2020",
+            "lcf_expired": "View"
+        },
+        {
+            "license_id": 104,
+            "number_car": "T-017",
+            "license_car": "71-6579",
+            "mi_expired": "5/16/2020",
+            "ai_expired": "6/30/2019",
+            "ei_expired": "NULL",
+            "dpi_expired": "NULL",
+            "tax_expired": "3/30/2020",
+            "lcf_expired": "View"
+        }
 ];
 
-var columns_add_contact = [
+var driver = [
     {
-        dataField: "branch",
-        caption: "สาขา",
+        "driver_id": 28,
+        "driver_name": "เอกพันธ์  ฮวบขุนทด",
+        "dlot_expired": "NULL",
+        "dlngt_expired": "NULL",
+        "dldot_expired": "6/23/2019",
+        "dl_expired": "View",
+        "lf_expired": "View",
+        "pas_expired": "View"
     },
     {
-        dataField: "house_no",
-        caption: "เลขที่",
+        "driver_id": 29,
+        "driver_name": "มานพ   ทองเทพ",
+        "dlot_expired": "12/5/2019",
+        "dlngt_expired": "NULL",
+        "dldot_expired": "NULL",
+        "dl_expired": "View",
+        "lf_expired": "View",
+        "pas_expired": "View"
     },
     {
-        dataField: "sub_district",
-        caption: "ตำบล",
+        "driver_id": 30,
+        "driver_name": "แสวง  โสขะ",
+        "dlot_expired": "6/23/2020",
+        "dlngt_expired": "NULL",
+        "dldot_expired": "NULL",
+        "dl_expired": "View",
+        "lf_expired": "View",
+        "pas_expired": "View"
     },
     {
-        dataField: "district",
-        caption: "อำเภอ",
-    },
-    {
-        dataField: "province",
-        caption: "จังหวัด",
-    },
-    {
-        dataField: "postcode",
-        caption: "รหัสไปษณี",
-    },
-    {
-        dataField: "country",
-        caption: "ประเทศ",
-    },
+        "driver_id": 31,
+        "driver_name": "สมหวัง  โสขะ",
+        "dlot_expired": "NULL",
+        "dlngt_expired": "NULL",
+        "dldot_expired": "NULL",
+        "dl_expired": "View",
+        "lf_expired": "View",
+        "pas_expired": "View"
+    }
 ];
 
-var columns_add_contact = [
+var equipment_transport = [{
+    eq_tran_id: 1,
+    eq_name: "ซัฟฟอร์ตเหล็กคอย",
+    basic_equipment: 1
+
+}, {
+    eq_tran_id: 2,
+    eq_name: "เหล็กเสียบข้างพร้อมโซ่",
+    basic_equipment: 1
+}, {
+    eq_tran_id: 3,
+    eq_name: "สเตย์ผ้าใบ",
+    basic_equipment: 0
+}, {
+    eq_tran_id: 4,
+    eq_name: "โซ่+เกลียวเร่ง",
+    basic_equipment: 0
+
+}, {
+    eq_tran_id: 5,
+    eq_name: "ผ้าใบบาง-ชั้นใน ขนาด 5x7 เมตร",
+    basic_equipment: 1
+}, {
+    eq_tran_id: 6,
+    eq_name: "ผ้าใบหนา-ชั้นนอก 5x7 เมตร",
+    basic_equipment: 0
+}, {
+    eq_tran_id: 7,
+    eq_name: "ผ้าใบหนา-ชั้นนอก 5x16 เมตร",
+    basic_equipment: 1
+}];
+
+var equipment_safety = [{
+    eq_safety_id: 1,
+    eq_name: "หมวกนิรภัย",
+}, {
+    eq_safety_id: 2,
+    eq_name: "หน้ากากนิรภัย",
+}, {
+    eq_safety_id: 3,
+    eq_name: "แว่นตานิรภัย",
+}, {
+    eq_safety_id: 4,
+    eq_name: "เอียร์ปลั๊ก",
+}, {
+    eq_safety_id: 5,
+    eq_name: "ถุงมือนิรภัย",
+}, {
+    eq_safety_id: 6,
+    eq_name: "รองเท้าเซฟตัี้",
+}, {
+    eq_safety_id: 7,
+    eq_name: "เสื้อสะท้อนแสง",
+}, {
+    eq_safety_id: 8,
+    eq_name: "สายรัดป้องกันตกจากที่สูง",
+}];
+
+var document_tran = [
     {
-        dataField: "cus_name",
-        caption: "ชื่อ",
+        "doc_id": 1,
+        "doc_name": "DO"
     },
     {
-        dataField: "position",
-        caption: "ตำแหน่ง",
+        "doc_id": 2,
+        "doc_name": "บัตรชั่ง"
     },
     {
-        dataField: "line",
-        caption: "ไลน์",
+        "doc_id": 3,
+        "doc_name": "COA"
     },
     {
-        dataField: "tel",
-        caption: "โทร",
-    },
-    {
-        dataField: "email",
-        caption: "อีเมล์",
-    },
-]
+        "doc_id": 4,
+        "doc_name": "MSDS"
+    }
+];
 
 var form = $("#example-advanced-form").show();
 form.steps({
@@ -547,6 +911,7 @@ form.steps({
     bodyTag: "fieldset",
     transitionEffect: "slideLeft",
     onStepChanging: function (event, currentIndex, newIndex) {
+        return true;
         /*
         // Allways allow previous action even if the current form is not valid!
         if (currentIndex > newIndex) {
