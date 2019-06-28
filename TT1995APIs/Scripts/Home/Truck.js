@@ -1,5 +1,12 @@
 ﻿$(function () {
 
+    $("#example-basic").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        autoFocus: true
+    });
+
     var truck = [
         {
             "license_id": 2,
@@ -2619,6 +2626,9 @@
     var grid_truck = $("#grid_truck").dxDataGrid({
         dataSource: truck,
         keyExpr: "license_id",
+        paging: {
+            pageSize: 10
+        },
         columns: show_column,
         //selection: {
         //    mode: "single"

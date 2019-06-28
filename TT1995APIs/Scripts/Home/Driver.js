@@ -1,5 +1,12 @@
 ﻿$(function () {
 
+    $("#example-basic").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        autoFocus: true
+    });
+
     var driver = [
         {
             "driver_id": 28,
@@ -410,6 +417,9 @@
     var grid_driver = $("#grid_driver").dxDataGrid({
         dataSource: driver,
         keyExpr: "driver_id",
+        paging: {
+            pageSize: 10
+        },
         columns: show_column,
         showBorders: true
     }).dxDataGrid("instance");

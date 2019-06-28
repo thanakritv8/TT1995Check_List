@@ -73,4 +73,15 @@ button.bg-menu:focus .fas  {
 .nav-link {
     padding: 0.5rem 0.7rem;
 }
+@media (max-width:767px) {
+    #logo-mb {
+        display: block;
+        font-size: 12px;
+    }
+}
+@media (min-width:768px) {
+    #logo-mb {
+        display: none;
+    }
+}
 

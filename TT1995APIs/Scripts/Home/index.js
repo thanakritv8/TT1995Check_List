@@ -61,7 +61,8 @@
         {
             dataField: "basic_equipment",
             dataType: "boolean",
-            caption: "อุปกรณ์พื้นฐาน"
+            caption: "อุปกรณ์พื้นฐาน",
+            width: 100
         }
         ],
         showBorders: true,

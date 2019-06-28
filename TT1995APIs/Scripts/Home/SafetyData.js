@@ -25,15 +25,22 @@
         selection: {
             mode: "single"
         },
+        columns: [{
+            dataField: "eq_safety_id",
+            caption: "รหัสอุปกรณ์",
+            alignment: "left"
+        },
+        {
+            dataField: "eq_name",
+            caption: "ชื่ออุปกรณ์"
+        }
+        ],
         onSelectionChanged: function (selectedItems) {
             //$("ul li:nth-child(2)").removeClass("disabled")
             $('ul[role|="menu"] li:nth-child(2)').removeClass("disabled");
             $("a:contains('Next')").attr('href', '#next');
             var data = selectedItems.selectedRowsData[0];
             equipment_safety_select = data.eq_safety_id;
-
-
-
             //console.log(data);
         },
         editing: {
@@ -51,6 +58,25 @@
         selection: {
             mode: "single"
         },
+        columns: [{
+            dataField: "eq_safety_type_id",
+            caption: "รหัสประเภท",
+            alignment: "left"
+        },
+        {
+            dataField: "eq_safety_type_en",
+            caption: "ประเภท (EN)"
+        },
+        {
+            dataField: "eq_safety_type_th",
+            caption: "ประเภท (TH)"
+        },
+        {
+            dataField: "eq_safety_id",
+            caption: "รหัสอุปกรณ์",
+            alignment: "left"
+        }
+        ],
         onSelectionChanged: function (selectedItems) {
             var data = selectedItems.selectedRowsData[0];
             console.log(data);
@@ -105,7 +131,7 @@ var equipment_safety = [{
     eq_name: "ถุงมือนิรภัย",
 }, {
     eq_safety_id: 6,
-    eq_name: "รองเท้าเซฟตัี้",
+    eq_name: "รองเท้าเซฟตี้",
 }, {
     eq_safety_id: 7,
     eq_name: "เสื้อสะท้อนแสง",
