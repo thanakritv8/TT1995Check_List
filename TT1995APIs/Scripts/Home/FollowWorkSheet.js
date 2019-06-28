@@ -173,15 +173,16 @@
             caption: "ชื่องาน",
         },
         {
-            dataField: "detail",
-            caption: "รายละเอียด",
-            cellTemplate: function (container, options) {
-                $('<a style="color:green;font-weight:bold;" />').addClass('dx-link')
-                    .text(options.value)
-                    .on('dxclick', function (e) {
-                        window.open('../Report/WorkSheet.pdf', '_blank');
-                    }).appendTo(container);
-            }
+            dataField: "tran_status",
+            caption: "สถานะ",
+        },
+        {
+            dataField: "create_date",
+            caption: "วันสร้างเอกสาร",
+        },
+        {
+            dataField: "create_by",
+            caption: "ผู้สร้าง",
         },
         {
             dataField: "jobWork",
@@ -198,22 +199,21 @@
                         } else {
                             $("#popup_jobWork").dxPopup("show");
                             popup_fileUploader();
-                        }                        
+                        }
                     }).appendTo(container);
             }
         },
         {
-            dataField: "tran_status",
-            caption: "สถานะ",
-        },
-        {
-            dataField: "create_date",
-            caption: "วันสร้างเอกสาร",
-        },
-        {
-            dataField: "create_by",
-            caption: "ผู้สร้าง",
-        },
+            dataField: "detail",
+            caption: "รายละเอียด",
+            cellTemplate: function (container, options) {
+                $('<a style="color:green;font-weight:bold;" />').addClass('dx-link')
+                    .text(options.value)
+                    .on('dxclick', function (e) {
+                        window.open('../Report/WorkSheet.pdf', '_blank');
+                    }).appendTo(container);
+            }
+        }
     ];
 
     var grid_follow_worksheet = $("#grid_follow_worksheet").dxDataGrid({
