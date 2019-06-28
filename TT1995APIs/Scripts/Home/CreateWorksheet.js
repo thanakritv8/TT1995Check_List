@@ -541,7 +541,6 @@ var columns_add_contact = [
     },
 ]
 
-
 var form = $("#example-advanced-form").show();
 form.steps({
     headerTag: "h3",
