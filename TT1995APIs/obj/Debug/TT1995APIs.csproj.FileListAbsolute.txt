@@ -1,284 +1,64 @@
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\ApplicationInsights.config
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\csc.exe
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\Microsoft.CSharp.Core.targets
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\System.Collections.Immutable.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\System.Reflection.Metadata.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\vbc.exe
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\VBCSCompiler.exe
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\roslyn\VBCSCompiler.exe.config
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\TT1995APIs.dll.config
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\TT1995APIs.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\TT1995APIs.pdb
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.Agent.Intercept.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.DependencyCollector.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.PerfCounterCollector.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.Web.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.WindowsServer.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.ApplicationInsights.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.Web.Infrastructure.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Newtonsoft.Json.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Net.Http.Formatting.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Helpers.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Http.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Http.WebHost.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Mvc.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Razor.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Webpages.Deployment.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Webpages.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Webpages.Razor.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.DependencyCollector.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.Web.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.AI.WindowsServer.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.ApplicationInsights.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Razor.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Webpages.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Webpages.Deployment.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Webpages.Razor.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Helpers.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Mvc.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\Newtonsoft.Json.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Net.Http.Formatting.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Http.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\bin\System.Web.Http.WebHost.xml
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\obj\Debug\TT1995APIs.csprojResolveAssemblyReference.cache
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\obj\Debug\TT1995APIs.dll
-c:\users\thanakrit.j\documents\visual studio 2015\Projects\TT1995APIs\TT1995APIs\obj\Debug\TT1995APIs.pdb
-D:\tt_checklist\TT1995APIs\bin\ApplicationInsights.config
-D:\tt_checklist\TT1995APIs\bin\roslyn\csc.exe
-D:\tt_checklist\TT1995APIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\tt_checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\tt_checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\tt_checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\tt_checklist\TT1995APIs\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\tt_checklist\TT1995APIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\tt_checklist\TT1995APIs\bin\roslyn\System.Collections.Immutable.dll
-D:\tt_checklist\TT1995APIs\bin\roslyn\System.Reflection.Metadata.dll
-D:\tt_checklist\TT1995APIs\bin\roslyn\vbc.exe
-D:\tt_checklist\TT1995APIs\bin\roslyn\VBCSCompiler.exe
-D:\tt_checklist\TT1995APIs\bin\roslyn\VBCSCompiler.exe.config
-D:\tt_checklist\TT1995APIs\bin\TT1995APIs.dll.config
-D:\tt_checklist\TT1995APIs\bin\TT1995APIs.dll
-D:\tt_checklist\TT1995APIs\bin\TT1995APIs.pdb
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.Agent.Intercept.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.DependencyCollector.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.PerfCounterCollector.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.Web.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.WindowsServer.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.ApplicationInsights.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.Web.Infrastructure.dll
-D:\tt_checklist\TT1995APIs\bin\Newtonsoft.Json.dll
-D:\tt_checklist\TT1995APIs\bin\System.Net.Http.Formatting.dll
-D:\tt_checklist\TT1995APIs\bin\System.Web.Helpers.dll
-D:\tt_checklist\TT1995APIs\bin\System.Web.Http.dll
-D:\tt_checklist\TT1995APIs\bin\System.Web.Http.WebHost.dll
-D:\tt_checklist\TT1995APIs\bin\System.Web.Mvc.dll
-D:\tt_checklist\TT1995APIs\bin\System.Web.Razor.dll
-D:\tt_checklist\TT1995APIs\bin\System.Web.Webpages.Deployment.dll
-D:\tt_checklist\TT1995APIs\bin\System.Web.Webpages.dll
-D:\tt_checklist\TT1995APIs\bin\System.Web.Webpages.Razor.dll
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.DependencyCollector.xml
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.xml
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.Web.xml
-D:\tt_checklist\TT1995APIs\bin\Microsoft.AI.WindowsServer.xml
-D:\tt_checklist\TT1995APIs\bin\Microsoft.ApplicationInsights.xml
-D:\tt_checklist\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\tt_checklist\TT1995APIs\bin\System.Web.Razor.xml
-D:\tt_checklist\TT1995APIs\bin\System.Web.Webpages.xml
-D:\tt_checklist\TT1995APIs\bin\System.Web.Webpages.Deployment.xml
-D:\tt_checklist\TT1995APIs\bin\System.Web.Webpages.Razor.xml
-D:\tt_checklist\TT1995APIs\bin\System.Web.Helpers.xml
-D:\tt_checklist\TT1995APIs\bin\System.Web.Mvc.xml
-D:\tt_checklist\TT1995APIs\bin\Newtonsoft.Json.xml
-D:\tt_checklist\TT1995APIs\bin\System.Net.Http.Formatting.xml
-D:\tt_checklist\TT1995APIs\bin\System.Web.Http.xml
-D:\tt_checklist\TT1995APIs\bin\System.Web.Http.WebHost.xml
-D:\tt_checklist\TT1995APIs\obj\Debug\TT1995APIs.csprojResolveAssemblyReference.cache
-D:\tt_checklist\TT1995APIs\obj\Debug\TT1995APIs.dll
-D:\tt_checklist\TT1995APIs\obj\Debug\TT1995APIs.pdb
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\ApplicationInsights.config
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\csc.exe
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\vbc.exe
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\VBCSCompiler.exe
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\TT1995APIs.dll.config
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\TT1995APIs.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\TT1995APIs.pdb
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.Web.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.ApplicationInsights.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Newtonsoft.Json.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Net.Http.Formatting.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Helpers.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Http.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Http.WebHost.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Mvc.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Razor.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Webpages.Deployment.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Webpages.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Webpages.Razor.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.Web.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.ApplicationInsights.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Razor.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Webpages.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Webpages.Deployment.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Webpages.Razor.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Helpers.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Mvc.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\Newtonsoft.Json.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Net.Http.Formatting.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Http.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\bin\System.Web.Http.WebHost.xml
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\obj\Debug\TT1995APIs.csprojResolveAssemblyReference.cache
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\obj\Debug\TT1995APIs.dll
-C:\Users\thanakrit.j\Documents\Visual Studio 2015\Projects\TT1995Check_List\TT1995APIs\obj\Debug\TT1995APIs.pdb
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\ApplicationInsights.config
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\csc.exe
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.CSharp.Core.targets
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\System.Collections.Immutable.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\System.Reflection.Metadata.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\vbc.exe
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\VBCSCompiler.exe
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\roslyn\VBCSCompiler.exe.config
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\TT1995APIs.dll.config
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\TT1995APIs.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\TT1995APIs.pdb
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.Agent.Intercept.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.DependencyCollector.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.PerfCounterCollector.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.Web.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.WindowsServer.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.ApplicationInsights.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.Web.Infrastructure.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Newtonsoft.Json.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Net.Http.Formatting.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Helpers.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Http.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Http.WebHost.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Mvc.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Razor.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.Deployment.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.Razor.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.DependencyCollector.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.Web.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.WindowsServer.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.ApplicationInsights.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Razor.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.Deployment.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.Razor.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Helpers.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Mvc.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Newtonsoft.Json.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Net.Http.Formatting.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Http.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\System.Web.Http.WebHost.xml
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.csprojAssemblyReference.cache
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.csproj.CoreCompileInputs.cache
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.csproj.CopyComplete
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.pdb
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\ApplicationInsights.config
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\csc.exe
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\System.Collections.Immutable.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\System.Reflection.Metadata.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\vbc.exe
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\VBCSCompiler.exe
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\roslyn\VBCSCompiler.exe.config
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\TT1995APIs.dll.config
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\TT1995APIs.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\TT1995APIs.pdb
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.DependencyCollector.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.Web.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.WindowsServer.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.ApplicationInsights.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.Web.Infrastructure.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Newtonsoft.Json.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Net.Http.Formatting.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Helpers.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Http.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Http.WebHost.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Mvc.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Razor.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.Deployment.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.Razor.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.DependencyCollector.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.Web.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.AI.WindowsServer.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.ApplicationInsights.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Razor.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.Deployment.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Webpages.Razor.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Helpers.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Mvc.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\Newtonsoft.Json.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Net.Http.Formatting.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Http.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\bin\System.Web.Http.WebHost.xml
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.csprojAssemblyReference.cache
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.csproj.CoreCompileInputs.cache
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.csproj.CopyComplete
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.dll
-C:\Work\TT1995\CheckList\TT1995_Checklist\TT1995APIs\obj\Debug\TT1995APIs.pdb
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\SqlServerTypes\x64\msvcr120.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\SqlServerTypes\x86\msvcr120.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.ReportViewer.Common.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.ReportViewer.WebForms.DLL
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\bin\Microsoft.SqlServer.Types.dll
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\RdlCompile.cache
-F:\TT1995\Checklist\Code\TT1995_Checklist\TT1995APIs\obj\Debug\RdlCompile.compiled
+D:\tt1995\V1\TT1995APIs\bin\ApplicationInsights.config
+D:\tt1995\V1\TT1995APIs\bin\roslyn\csc.exe
+D:\tt1995\V1\TT1995APIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\tt1995\V1\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\tt1995\V1\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\tt1995\V1\TT1995APIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\tt1995\V1\TT1995APIs\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\tt1995\V1\TT1995APIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\tt1995\V1\TT1995APIs\bin\roslyn\System.Collections.Immutable.dll
+D:\tt1995\V1\TT1995APIs\bin\roslyn\System.Reflection.Metadata.dll
+D:\tt1995\V1\TT1995APIs\bin\roslyn\vbc.exe
+D:\tt1995\V1\TT1995APIs\bin\roslyn\VBCSCompiler.exe
+D:\tt1995\V1\TT1995APIs\bin\roslyn\VBCSCompiler.exe.config
+D:\tt1995\V1\TT1995APIs\bin\SqlServerTypes\x64\msvcr120.dll
+D:\tt1995\V1\TT1995APIs\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\tt1995\V1\TT1995APIs\bin\SqlServerTypes\x86\msvcr120.dll
+D:\tt1995\V1\TT1995APIs\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.Agent.Intercept.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.DependencyCollector.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.Web.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.WindowsServer.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.ApplicationInsights.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.ReportViewer.Common.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.SqlServer.Types.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.Web.Infrastructure.dll
+D:\tt1995\V1\TT1995APIs\bin\Newtonsoft.Json.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Net.Http.Formatting.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Helpers.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Http.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Http.WebHost.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Mvc.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Razor.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Webpages.Deployment.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Webpages.dll
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Webpages.Razor.dll
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.DependencyCollector.xml
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.Web.xml
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.AI.WindowsServer.xml
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.ApplicationInsights.xml
+D:\tt1995\V1\TT1995APIs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Razor.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Webpages.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Webpages.Deployment.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Webpages.Razor.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Helpers.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Mvc.xml
+D:\tt1995\V1\TT1995APIs\bin\Newtonsoft.Json.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Net.Http.Formatting.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Http.xml
+D:\tt1995\V1\TT1995APIs\bin\System.Web.Http.WebHost.xml
+D:\tt1995\V1\TT1995APIs\obj\Debug\TT1995APIs.csprojResolveAssemblyReference.cache
+D:\tt1995\V1\TT1995APIs\obj\Debug\RdlCompile.cache
+D:\tt1995\V1\TT1995APIs\obj\Debug\RdlCompile.compiled
+D:\tt1995\V1\TT1995APIs\obj\Debug\TT1995APIs.dll
+D:\tt1995\V1\TT1995APIs\obj\Debug\TT1995APIs.pdb
+D:\tt1995\V1\TT1995APIs\bin\TT1995APIs.dll.config
+D:\tt1995\V1\TT1995APIs\bin\TT1995APIs.dll
+D:\tt1995\V1\TT1995APIs\bin\TT1995APIs.pdb
