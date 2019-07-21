@@ -2,18 +2,50 @@
     ViewBag.Title = "Truck";
 }
 
+<style>
+    .dx-gallery-item {
+    width: 400px;
+    max-width: 100%;
+}
+
+.dx-gallery-item img {
+    height: 200px;
+    width: 250px;
+    max-width: 100%;
+} 
+
+.dx-gallery-item .item-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+    .item-address{
+        margin-top: 20px;
+    }
+</style>
+
 <div class="header-title">
     รถบรรทุก
 </div>
 <div class="container-fluid">
-    <div id="example-basic" style="margin-top: 15px;">
-        <h3>รถบรรทุก</h3>
-        <section>
-            <div class="demo-container">
-                <div id="grid_truck"></div>
-            </div>
-        </section>
+    <div style="margin-top: 15px; background-color: #fff; padding: 15px;">
+        <div id="tab">
+            <h3>หัวลาก</h3>
+            <section>
+                <div class="demo-container">
+                    <div id="grid_car_head"></div>
+                </div>
+            </section>
+            <h3>หางกึ่งพ่วง</h3>
+            <section>
+                <div class="demo-container">
+                    <div id="grid_car_tail"></div>
+                </div>
+            </section>
+        </div>
+        <div id="popup_truck"></div>
+        <div id="popup_tax_or_insurance"></div>
+        <div id="popup_license"></div>
+        <div id="popup_detail"></div>
     </div>
-    <div id="popup_truck"></div>
 </div>
 <script src="~/Scripts/Home/Truck.js"></script>

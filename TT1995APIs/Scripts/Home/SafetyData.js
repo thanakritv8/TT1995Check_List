@@ -46,7 +46,11 @@
         editing: {
             allowUpdating: true, // Enables editing
             allowAdding: true, // Enables insertion
-            allowDeleting: true // Enables removing
+            allowDeleting: true, // Enables removing
+            mode: 'popup',
+            form: {
+                items: allow_edit
+            },
         },
         showBorders: true
     }).dxDataGrid("instance");

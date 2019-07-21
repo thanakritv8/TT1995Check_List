@@ -360,7 +360,6 @@
         }
     ];
 
-
     var show_column = [
         {
             dataField: "driver_name",
@@ -416,6 +415,10 @@
 
     var grid_driver = $("#grid_driver").dxDataGrid({
         dataSource: driver,
+        searchPanel: {
+            visible: true,
+            highlightCaseSensitive: true
+        },
         keyExpr: "driver_id",
         paging: {
             pageSize: 10
@@ -430,9 +433,7 @@
         popup_driver._options.contentTemplate = function (content) {
             var maxHeight = $("#popup_driver .dx-overlay-content").height() - 150;
             content.append("<div id='grid_add_data' style='max-height: " + maxHeight + "px;' ></div>");
-
         }
-
         $("#popup_driver").dxPopup("show");
         show_grid_in_popup(data);
     }

@@ -7,11 +7,12 @@ using System.Web;
 using System.Web.Mvc;
 using TT1995APIs.Models.Home;
 using TT1995APIs.Models;
-using Microsoft.Reporting.WebForms;
+//using Microsoft.Reporting.WebForms;
 using System.IO;
 
 namespace TT1995APIs.Controllers
 {
+
     public class HomeController : Controller
     {
         #region ActionResult
@@ -28,14 +29,20 @@ namespace TT1995APIs.Controllers
             return View();
         }
 
+        public ActionResult Document()
+        {
+            ViewBag.onPage = 2;
+            return View();
+        }
+
         public ActionResult DriverData()
         {
-            ViewBag.onPage = 3;
+            ViewBag.onPage = 4;
             return View();
         }
         public ActionResult TruckData()
         {
-            ViewBag.onPage = 4;
+            ViewBag.onPage = 3;
             return View();
         }
 
@@ -44,10 +51,15 @@ namespace TT1995APIs.Controllers
             ViewBag.onPage = 5;
             return View();
         }
-
-        public ActionResult CustomerV2()
+        public ActionResult Equipment()
         {
             ViewBag.onPage = 5;
+            return View();
+        }
+        
+        public ActionResult CustomerV2()
+        {
+            ViewBag.onPage = 1;
             return View();
         }
 
@@ -71,49 +83,49 @@ namespace TT1995APIs.Controllers
         #endregion        
 
         #region ActionExportReport
-        public ActionResult ExportWorkSheet(string id)
-        {
-            //link use Home/ExportWorkSheet?id=2
-            ReportDataSource rds = new ReportDataSource("DataSetGetWorkSheet", GetWeekSheetReport(id));
-            LocalReport report = new LocalReport();
-            report.ReportPath = Path.Combine(Server.MapPath("~/Report"), "WorkSheet.rdlc");
-            report.DataSources.Clear();
-            //report.SetParameters(new ReportParameter[] { parameter });
-            report.DataSources.Add(rds);
-            report.Refresh();
-            PrintPDF(report);
-            return View();
-        }
+        //public ActionResult ExportWorkSheet(string id)
+        //{
+        //    //link use Home/ExportWorkSheet?id=2
+        //    ReportDataSource rds = new ReportDataSource("DataSetGetWorkSheet", GetWeekSheetReport(id));
+        //    LocalReport report = new LocalReport();
+        //    report.ReportPath = Path.Combine(Server.MapPath("~/Report"), "WorkSheet.rdlc");
+        //    report.DataSources.Clear();
+        //    //report.SetParameters(new ReportParameter[] { parameter });
+        //    report.DataSources.Add(rds);
+        //    report.Refresh();
+        //    PrintPDF(report);
+        //    return View();
+        //}
 
-        private void PrintPDF(LocalReport report)
-        {
-            string FileName = "temp.pdf";
-            string extension;
-            string encoding;
-            string mimeType;
-            string[] streams;
-            Warning[] warnings;
-            Byte[] mybytes = report.Render("PDF", null,
-                          out extension, out encoding,
-                          out mimeType, out streams, out warnings);
-            using (FileStream fs = new FileStream(Server.MapPath("~/Report/" + FileName), FileMode.Create))
-            {
-                fs.Write(mybytes, 0, mybytes.Length);
-            }
-            Response.ClearHeaders();
-            Response.ClearContent();
-            Response.Buffer = true;
-            Response.Clear();
-            Response.Charset = "";
-            Response.ContentType = "application/pdf";
-            Response.AddHeader("Content-Disposition", "attachment;filename=\"" + FileName + "\"");
-            Response.WriteFile(Server.MapPath("~/Report/" + FileName));
+        //private void PrintPDF(LocalReport report)
+        //{
+        //    string FileName = "temp.pdf";
+        //    string extension;
+        //    string encoding;
+        //    string mimeType;
+        //    string[] streams;
+        //    Warning[] warnings;
+        //    Byte[] mybytes = report.Render("PDF", null,
+        //                  out extension, out encoding,
+        //                  out mimeType, out streams, out warnings);
+        //    using (FileStream fs = new FileStream(Server.MapPath("~/Report/" + FileName), FileMode.Create))
+        //    {
+        //        fs.Write(mybytes, 0, mybytes.Length);
+        //    }
+        //    Response.ClearHeaders();
+        //    Response.ClearContent();
+        //    Response.Buffer = true;
+        //    Response.Clear();
+        //    Response.Charset = "";
+        //    Response.ContentType = "application/pdf";
+        //    Response.AddHeader("Content-Disposition", "attachment;filename=\"" + FileName + "\"");
+        //    Response.WriteFile(Server.MapPath("~/Report/" + FileName));
 
-            Response.Flush();
-            System.IO.File.Delete(Server.MapPath("~/Report/" + FileName));
-            Response.Close();
-            Response.End();
-        }
+        //    Response.Flush();
+        //    System.IO.File.Delete(Server.MapPath("~/Report/" + FileName));
+        //    Response.Close();
+        //    Response.End();
+        //}
 
         private DataTable GetWeekSheetReport(string id)
         {

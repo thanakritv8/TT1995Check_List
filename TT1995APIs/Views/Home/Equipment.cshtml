@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Equipment";
+}
+<style>
+    .form-avatar {
+        height: 300px;
+        width: 200px;
+        margin-right: 10px;
+        border: 0px solid #d2d3d5;
+        border-radius: 50%;
+        /*background-image: url('../../Content/Layout/tt.png');*/
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .center {
+        width: 50%;
+        margin: 0 25%;
+    }
+    .wizard .content {
+        min-height: 100px;
+    }
+
+        .wizard .content > .body {
+            width: 100%;
+            height: auto;
+            padding: 15px;
+            position: relative;
+        }
+</style>
+
+
+
+<div class="header-title">
+    อุปกรณ์
+</div>
+<div class="container-fluid">
+    <div id="tab" style="margin-top: 15px;">
+        <h3>อุปกรณ์ขนส่ง</h3>
+        <section>
+            <div class="demo-container">
+                <div id="grid_transport"></div>
+            </div>
+        </section>
+        <h3>อุปกรณ์เซพตี้</h3>
+        <section>
+            <div class="demo-container">
+                <div id="grid_safety"></div>
+            </div>
+        </section>
+    </div>
+
+</div>
+<script src="~/Scripts/Home/Equipment.js"></script>
+

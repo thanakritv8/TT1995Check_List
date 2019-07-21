@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Three Trans (1995)</title>
     <link rel="stylesheet" href="~/Content/Layout/bootstrap.css" />
-    <link rel="stylesheet" href="~/Content/Layout/sidebar.css" />
-    <link rel="stylesheet" href="~/Content/Layout/jquery.steps.css" />
-    <link rel="stylesheet" href="~/Content/Layout/style.css" />
-    <script src="~/Scripts/Layout/jquery.min.js"></script>
-    <script src="~/Scripts/Layout/jquery.cookie-1.3.1.js"></script>
-    <script src="~/Scripts/Layout/jquery.steps.js"></script>
-    <script src="~/Scripts/Layout/popper.js"></script>
-    <script src="~/Scripts/Layout/bootstrap.js"></script>
-    <script src="~/Scripts/Layout/jquery.validate.js"></script>
-    <script src="~/Scripts/Layout/additional-methods.js"></script>
-    <link rel="stylesheet" href="~/Content/Layout/dx.light.css" />
+        <link rel="stylesheet" href="~/Content/Layout/sidebar.css" />
+        <link rel="stylesheet" href="~/Content/Layout/jquery.steps.css" />
+        <link rel="stylesheet" href="~/Content/Layout/style.css" />
+        <script src="~/Scripts/Layout/jquery.min.js"></script>
+        <script src="~/Scripts/Layout/jquery.cookie-1.3.1.js"></script>
+        <script src="~/Scripts/Layout/jquery.steps.js"></script>
+        <script src="~/Scripts/Layout/popper.js"></script>
+        <script src="~/Scripts/Layout/bootstrap.js"></script>
+        <script src="~/Scripts/Layout/jquery.validate.js"></script>
+        <script src="~/Scripts/Layout/additional-methods.js"></script>
+        <link rel="stylesheet" href="~/Content/Layout/dx.light.css" />
+    @*<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.material.teal.light.compact.css">*@
     <link rel="stylesheet" href="~/Content/Layout/dx.common.css" />
     <script src="https://kit.fontawesome.com/19503b070c.js"></script>
     <script src="~/Scripts/Layout/dx.all.js"></script>
+    @*<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.4/css/dx.light.css" />
+        <script src="https://cdn3.devexpress.com/jslib/19.1.4/js/dx.all.js"></script>*@
+
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -27,16 +32,21 @@
             <div class="sidebar-heading"><img src="~/Content/Layout/tt.png" width="40"/>&nbsp; TRANSPORT SUPPORT</div>
             <div class="list-group list-group-flush text-white">
                 <h6 class="sidebar-heading-item px-3 mt-4 mb-1">โปรไฟล์</h6>
-                <a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="menu1"><i class="fas fa-truck-loading"></i> อุปกรณ์ขนส่ง</a>
-                <a href="~/Home/SafetyData" class="list-group-item list-group-item-action bg-menu" id="menu2"><i class="fas fa-hard-hat"></i> อุปกรณ์เซฟตี้</a>
-                <a href="~/Home/DriverData" class="list-group-item list-group-item-action bg-menu" id="menu3"><i class="fas fa-user-tie"></i> พนักงานขับรถ</a>
-                <a href="~/Home/TruckData" class="list-group-item list-group-item-action bg-menu" id="menu4"><i class="fas fa-truck"></i> รถบรรทุก</a>
-                <a href="~/Home/CustomerData" class="list-group-item list-group-item-action bg-menu" id="menu5"><i class="fas fa-user"></i> ลูกค้า</a>
-                <a href="~/Home/CustomerV2" class="list-group-item list-group-item-action bg-menu" id="menu5"><i class="fas fa-user"></i> ลูกค้า</a>
+                @*<a href="~/Home/Index" class="list-group-item list-group-item-action bg-menu" id="menu1"><i class="fas fa-truck-loading"></i> อุปกรณ์ขนส่ง</a>
+                <a href="~/Home/SafetyData" class="list-group-item list-group-item-action bg-menu" id="menu2"><i class="fas fa-hard-hat"></i> อุปกรณ์เซฟตี้</a>*@
+                <a href="~/Home/CustomerV2" class="list-group-item list-group-item-action bg-menu" id="menu1"><i class="fas fa-user"></i> ลูกค้า</a>
+                <a href="~/Home/Document" class="list-group-item list-group-item-action bg-menu" id="menu2"><i class="fas fa-file"></i> เอกสาร</a>
+                <a href="~/Home/TruckData" class="list-group-item list-group-item-action bg-menu" id="menu3"><i class="fas fa-truck"></i> รถบรรทุก</a>
+                <a href="~/Home/DriverData" class="list-group-item list-group-item-action bg-menu" id="menu4"><i class="fas fa-user-tie"></i> พนักงานขับรถ</a>
+                <a href="~/Home/Equipment" class="list-group-item list-group-item-action bg-menu" id="menu5"><i class="fas fa-cog"></i> อุปกรณ์</a>
+               
+                
+                @*<a href="~/Home/CustomerData" class="list-group-item list-group-item-action bg-menu" id="menu5"><i class="fas fa-user"></i> ลูกค้า</a>*@
+                
                 <h6 class="sidebar-heading-item px-3 mt-4 mb-1">การขนส่ง</h6>
                 <a href="~/Home/CreateWorksheet" class="list-group-item list-group-item-action bg-menu" id="menu6"><i class="fas fa-file-medical"></i> สร้างใบงาน</a>
                 <a href="~/Home/FollowWorksheet" class="list-group-item list-group-item-action bg-menu" id="menu7"><i class="fas fa-file-upload"></i> ติดตามใบงาน</a>
-                <a href="~/Home/ReportWorksheet" class="list-group-item list-group-item-action bg-menu" id="menu8"><i class="fas fa-file-alt"></i> รายงานใบงาน</a>
+                @*<a href="~/Home/ReportWorksheet" class="list-group-item list-group-item-action bg-menu" id="menu8"><i class="fas fa-file-alt"></i> รายงานใบงาน</a>*@
                 <h6 class="sidebar-heading-item px-3 mt-4 mb-1">บัญชี</h6>
                 <a href="#" class="list-group-item list-group-item-action bg-menu"><i class="fas fa-user-cog"></i> จัดการบัญชี</a>
             </div>

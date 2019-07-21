@@ -2,16 +2,72 @@
     ViewBag.Title = "ติดตามงาน";
 }
 
+<style>
+    .dx-field-label {
+    /*float: right;*/
+    width: auto;
+}
+    .dx-field-value {
+    float: left;
+}
+    .dx-field-value-static {
+    float: left;
+    width: auto;
+}
+    .a-margin-left {
+        margin-left:5px;
+    }
+</style>
+
 <div class="header-title">
     ติดตามงาน
 </div>
 <div class="container-fluid">
     <div style="margin-top: 15px; background-color: #fff; padding: 15px;">
+        <div class="mt-2" id="chart"></div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="dx-field">
+                    <div class="dx-field-label">Start Date : </div>
+                    <div class="dx-field-value">
+                        <div id="date_start"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="dx-field">
+                    <div class="dx-field-label">End Date : </div>
+                    <div class="dx-field-value">
+                        <div id="date_end"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dx-field">
+                    <div class="dx-field-label">Filter : </div>
+                    <div class="dx-field-value-static">
+                        <div id="checkBoxCreated"></div>
+                        <div id="checkBoxDoing"></div>
+                        <div id="checkBoxFinish"></div>
+                        <div id="checkBoxAll"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 text-center">
+                <div class="dx-field">
+                    <div id="validate" class="validate"></div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="demo-container">
             <div id="grid_follow_worksheet"></div>
         </div>
     </div>
     <div id="popup_jobWork"></div>
+    <div id="popup_check"></div>
 </div>
 <style>
 </style>

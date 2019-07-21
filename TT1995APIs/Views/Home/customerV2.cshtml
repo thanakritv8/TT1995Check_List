@@ -2,18 +2,49 @@
     ViewBag.Title = "customerV2";
 }
 
+<style>
+    .dx-gallery-item {
+        width: 400px;
+        max-width: 100%;
+    }
+
+        .dx-gallery-item img {
+            height: 200px;
+            width: 250px;
+            max-width: 100%;
+        }
+
+        .dx-gallery-item .item-price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    .item-address {
+        margin-top: 20px;
+    }
+</style>
+
 <div class="header-title">
     ลูกค้า
 </div>
-<div class="container-fluid" style="margin-top: 15px;">
-    <div class="demo-container">
-        <form action="your-action" id="form-container">
-            <div id="form"></div>
-            <div class="demo-container mt-2">
-                <div id="grid_product"></div>
-            </div>            
-        </form>
-    </div>
+<div class="container-fluid">
+    <div style="margin-top: 15px; background-color: #fff; padding: 15px;">
+        <div class="demo-container">
+            <form action="your-action" id="form-container">
+                <div id="form"></div>
+                <div class="demo-container mt-2">
+                    <div id="grid_branch"></div>
+                    <br>
+                    <div id="grid_product"></div>
+                    <br>
+                    <div id="grid_route"></div>
+                </div>
+            </form>
+        </div>
+     </div>
     <div id="popup_add_customer"></div>
-</div>
-<script src="~/Scripts/Home/customerV2.js"></script>
+    <div id="popup_doc_equip"></div>
+    <div id="popup_driver_truck"></div>
+    <div id="popup_detail"></div>
+    </div>
+    <script src="~/Scripts/Home/customerV2.js"></script>

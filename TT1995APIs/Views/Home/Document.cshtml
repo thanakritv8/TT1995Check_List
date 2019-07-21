@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "เอกสาร";
+}
+
+<style>
+    .form-avatar {
+        height: 300px;
+        width: 200px;
+        margin-right: 10px;
+        border: 0px solid #d2d3d5;
+        border-radius: 50%;
+        /*background-image: url('../../Content/Layout/tt.png');*/
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+    }
+
+    .center {
+        width: 50%;
+        margin: 0 25%;
+    }
+</style>
+
+<div class="header-title">
+    เอกสาร
+</div>
+<div class="container-fluid">
+    <div style="margin-top: 15px; background-color: #fff; padding: 15px;">
+        <div id="example-basic">
+            @*<h3>เอกสาร</h3>*@
+            <section>
+                <div class="demo-container">
+                    <div id="grid_document"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="popup_truck"></div>
+    <div id="fileuploader-container">
+        <div id="file-uploader"></div>
+    </div>
+</div>
+<script src="~/Scripts/Home/Document.js"></script>

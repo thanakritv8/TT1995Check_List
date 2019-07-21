@@ -170,6 +170,18 @@
     <Content Include="Content\Layout\icons\dxiconsmaterial.ttf" />
     <Content Include="Content\Layout\icons\dxiconsmaterial.woff" />
     <Content Include="Content\Layout\icons\dxiconsmaterial.woff2" />
+    <Content Include="img\doc\doc.jpg" />
+    <Content Include="img\safety\safety.png" />
+    <Content Include="img\transport\transport.png" />
+    <Content Include="img\รูปรถ\ด้าน ซ้าย 70-2039.jpg" />
+    <Content Include="img\รูปรถ\ด้านท้าย 70-2039.jpg" />
+    <Content Include="img\รูปรถ\ด้านหน้า 70-2039.jpg" />
+    <Content Include="img\รูปรถ\ด้าย ขวา70-2039.jpg" />
+    <Content Include="img\รูปรถ\มุม หน้าซ้าย70-2039.jpg" />
+    <Content Include="img\รูปรถ\มุมซ้าย 70-2039.bmp" />
+    <Content Include="img\รูปรถ\มุมด้าน ท้าย ขวา70-2039.jpg" />
+    <Content Include="img\รูปรถ\มุมด้าน หน้าขวา70-2039.jpg" />
+    <Content Include="img\รูปรถ\มุมด้านท้ายซ้าย70-2039.jpg" />
     <Content Include="Models\Home\DataSetGetWorkSheet.xsc">
       <DependentUpon>DataSetGetWorkSheet.xsd</DependentUpon>
     </Content>
@@ -189,7 +201,9 @@
     <Content Include="Scripts\Home\CreateWorksheet.js" />
     <Content Include="Scripts\Home\customer.js" />
     <Content Include="Scripts\Home\customerV2.js" />
+    <Content Include="Scripts\Home\Document.js" />
     <Content Include="Scripts\Home\Driver.js" />
+    <Content Include="Scripts\Home\Equipment.js" />
     <Content Include="Scripts\Home\FollowWorkSheet.js" />
     <Content Include="Scripts\Home\index.js" />
     <Content Include="Scripts\Home\ReportWorkSheet.js" />
@@ -262,6 +276,8 @@
     <Content Include="Views\Home\ReportWorksheet.cshtml" />
     <Content Include="Views\Home\TruckData.cshtml" />
     <Content Include="Views\Home\customerV2.cshtml" />
+    <Content Include="Views\Home\Document.cshtml" />
+    <Content Include="Views\Home\Equipment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
