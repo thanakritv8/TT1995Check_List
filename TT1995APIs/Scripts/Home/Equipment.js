@@ -8,11 +8,11 @@
         enableAllSteps: true,
     });
     $(".last").addClass("done");
-
+    var GbE;
     function get_eq_safety() {
         return $.ajax({
             type: "GET",
-            url: "http://43.254.133.49:8015/TTApi/CheckList/Profile/GetEquipmentSafetyAll",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/GetEquipmentSafetyAll",
             dataType: "json",
             async: false,
             success: function (data) {
@@ -22,7 +22,7 @@
     function get_eq_transport() {
         return $.ajax({
             type: "GET",
-            url: "http://43.254.133.49:8015/TTApi/CheckList/Profile/GetEquipmentTransportAll",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/GetEquipmentTransportAll",
             dataType: "json",
             async: false,
             success: function (data) {
@@ -33,14 +33,18 @@
     var equipment_safety = get_eq_safety();
     var equipment_transport = get_eq_transport();
 
-    var equipment_type = [{
-        eq_type_id: "1",
-        eq_type:'พื้นฐาน'
-    },{
-        eq_type_id: "2",
-        eq_type: 'พิเศษ'
+    function get_equipment_type() {
+        return $.ajax({
+            type: "GET",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/GetEquipmentType",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+            }
+        }).responseJSON;
     }
-    ]
+
+    var equipment_type = get_equipment_type();
 
     var allow_edit = [
     {
@@ -64,7 +68,7 @@
                    
                 } else {
                     console.log(data);
-                    pic = (data.component._options.validationGroup.oldData.eq_path).replace("C:\\inetpub\\wwwroot", "http://43.254.133.49:8015");
+                    pic = (data.component._options.validationGroup.oldData.eq_path).replace("C:\\inetpub\\wwwroot", "http://tabien.threetrans.com");
                     console.log(pic);
                 }
                 itemElement.append($("<div class='center'><div class='form-avatar' id='form-avatar'><img src='" + pic + "' id='image' width='100%' height='100%'></div></div>"));
@@ -129,7 +133,7 @@
 
                 } else {
                     console.log(data);
-                    pic = (data.component._options.validationGroup.oldData.eq_path).replace("C:\\inetpub\\wwwroot", "http://43.254.133.49:8015");
+                    pic = (data.component._options.validationGroup.oldData.eq_path).replace("C:\\inetpub\\wwwroot", "http://tabien.threetrans.com");
                     console.log(pic);
                 }
                 itemElement.append($("<div class='center'><div class='form-avatar' id='form-avatar'><img src='" + pic + "' id='image' width='100%' height='100%'></div></div>"));
@@ -271,6 +275,40 @@
             form: {
                 items: allow_edit_transport
             },
+            popup: {
+                title: "รายการบริษัทประกัน พรบ",
+                showTitle: true,
+                width: "70%",
+                position: { my: "center", at: "center", of: window },
+                toolbarItems: [{
+                    toolbar: 'bottom',
+                    location: 'after',
+                    widget: "dxButton",
+                    options: {
+                        text: "Save",
+                        onClick: function (e) {
+                            if (fnUpdateEqTransportimg(GbE.key)) {
+                                grid_transport.saveEditData();
+                            }
+                        }
+                    }
+                }, {
+                    toolbar: 'bottom',
+                    location: 'after',
+                    widget: "dxButton",
+                    options: {
+                        text: "Cancel",
+                        onClick: function (args) {
+                            grid_transport.cancelEditData();
+                        }
+                    }
+                }]
+
+            }
+        },
+        onEditingStart: function (e) {
+            $("#btn_upload_file").remove();
+            GbE = e;
         },
         onRowInserting: function (e) {
             var idInsert = fnInsertEqTransport(e.data);
@@ -305,6 +343,40 @@
             form: {
                 items: allow_edit
             },
+            popup: {
+                title: "รายการบริษัทประกัน พรบ",
+                showTitle: true,
+                width: "70%",
+                position: { my: "center", at: "center", of: window },
+                toolbarItems: [{
+                    toolbar: 'bottom',
+                    location: 'after',
+                    widget: "dxButton",
+                    options: {
+                        text: "Save",
+                        onClick: function (e) {
+                            if (fnUpdateEqSafetyImg(GbE.key)) {
+                                grid_safety.saveEditData();
+                            }
+                        }
+                    }
+                }, {
+                    toolbar: 'bottom',
+                    location: 'after',
+                    widget: "dxButton",
+                    options: {
+                        text: "Cancel",
+                        onClick: function (args) {
+                            grid_safety.cancelEditData();
+                        }
+                    }
+                }]
+
+            }
+        },
+        onEditingStart: function (e) {
+            $("#btn_upload_file").remove();
+            GbE = e;
         },
         onRowInserting: function (e) {
             var idInsert = fnInsertEqSafety(e.data);
@@ -340,7 +412,7 @@
         var id_return = 0;
         $.ajax({
             type: 'POST',
-            url: "http://43.254.133.49:8015/TTApi/CheckList/Profile/InsertEquipmentSafety",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/InsertEquipmentSafety",
             data: model,
             dataType: "json",
             processData: false,
@@ -377,7 +449,7 @@
         var id_return = 0;
         $.ajax({
             type: 'POST',
-            url: "http://43.254.133.49:8015/TTApi/CheckList/Profile/InsertEquipmentTransport",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/InsertEquipmentTransport",
             data: model,
             dataType: "json",
             processData: false,
@@ -403,14 +475,15 @@
     function fnUpdateEqSafety(data, key) {
         console.log(data);
         var model = new FormData();
+        model.append('eq_safety_id', key);
         model.append('eq_safety_code', data.eq_safety_code);
         model.append('eq_name', data.eq_name);
         model.append('style', data.style);
         model.append('property', data.property);
         model.append('suggestion', data.suggestion);
         model.append('eq_type_id', data.eq_type_id);
-        model.append('eq_safety_id', key);
-        model.append('Image', btn_upload_file._options.value[0]);
+        
+        //model.append('Image', btn_upload_file._options.value[0]);
         //data.eq_safety_id = key;
         console.log(btn_upload_file._options.value[0]);
         console.log(data.style);
@@ -418,7 +491,7 @@
         var returnStatus;
         $.ajax({
             type: "POST",
-            url: "http://43.254.133.49:8015/TTApi/CheckList/Profile/UpdateEquipmentSafety",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/UpdateEquipmentSafety",
             data: model,
             dataType: "json",
             async: false,
@@ -437,17 +510,45 @@
         });
         return returnStatus;
     }
+
+    function fnUpdateEqSafetyImg(key) {
+        var model = new FormData();
+        model.append('eq_safety_id', key);
+        model.append('Image', btn_upload_file._options.value[0]);
+        var returnStatus;
+        $.ajax({
+            type: "POST",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/UpdateEquipmentSafety",
+            data: model,
+            dataType: "json",
+            async: false,
+            processData: false,
+            contentType: false,// not json 
+            success: function (res) {
+                console.log(res);
+                if (res.code == "OK") {
+                    DevExpress.ui.notify("แก้ไขข้อมูลเรียบร้อยแล้ว", "success");
+                    returnStatus = true;
+                } else {
+                    DevExpress.ui.notify("ไม่สามารถแก้ไขข้อมูลได้กรุณาตรวจสอบข้อมูล", "error");
+                    returnStatus = false;
+                }
+            }
+        });
+        return returnStatus;
+    }
+
     function fnUpdateEqTransport(data, key) {
         console.log(data);
         var model = new FormData();
-        model.append('eq_tran_code', data.eq_safety_code);
+        model.append('eq_tran_id', key);
+        model.append('eq_tran_code', data.eq_tran_code);
         model.append('eq_name', data.eq_name);
         model.append('style', data.style);
         model.append('property', data.property);
         model.append('suggestion', data.suggestion);
         model.append('eq_type_id', data.eq_type_id);
-        model.append('eq_safety_id', key);
-        model.append('Image', btn_upload_file._options.value[0]);
+        //model.append('Image', btn_upload_file._options.value[0]);
         //data.eq_safety_id = key;
         console.log(btn_upload_file._options.value[0]);
         console.log(data.style);
@@ -455,7 +556,34 @@
         var returnStatus;
         $.ajax({
             type: "POST",
-            url: "http://43.254.133.49:8015/TTApi/CheckList/Profile/UpdateEquipmentTransport",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/UpdateEquipmentTransport",
+            data: model,
+            dataType: "json",
+            async: false,
+            processData: false,
+            contentType: false,// not json 
+            success: function (res) {
+                console.log(res);
+                if (res.code == "OK") {
+                    DevExpress.ui.notify("แก้ไขข้อมูลเรียบร้อยแล้ว", "success");
+                    returnStatus = true;
+                } else {
+                    DevExpress.ui.notify("ไม่สามารถแก้ไขข้อมูลได้กรุณาตรวจสอบข้อมูล", "error");
+                    returnStatus = false;
+                }
+            }
+        });
+        return returnStatus;
+    }
+
+    function fnUpdateEqTransportimg(key){
+        var model = new FormData();
+        model.append('eq_tran_id', key);
+        model.append('Image', btn_upload_file._options.value[0]);
+        var returnStatus;
+        $.ajax({
+            type: "POST",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/UpdateEquipmentTransport",
             data: model,
             dataType: "json",
             async: false,
@@ -478,7 +606,7 @@
     function fnDeleteEqSafety(data) {
         $.ajax({
             type: "POST",
-            url: "http://43.254.133.49:8015/TTApi/CheckList/Profile/DeleteEquipmentSafety",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/DeleteEquipmentSafety",
             data: { eq_safety_id: data},
             dataType: "json",
             async: false,
@@ -498,7 +626,7 @@
     function fnDeleteEqTransport(data) {
         $.ajax({
             type: "POST",
-            url: "http://43.254.133.49:8015/TTApi/CheckList/Profile/DeleteEquipmentTransport",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/DeleteEquipmentTransport",
             data: { eq_tran_id: data },
             dataType: "json",
             async: false,
