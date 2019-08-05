@@ -1,14 +1,130 @@
 ﻿$(function () {
+    function GetCustomerAll() {
+        return $.ajax({
+            type: "GET",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/GetCustomerAll",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+            }
+        }).responseJSON;
+    }
+    function GetBranchCustomerAll(cus_id) {
+        return $.ajax({
+            type: "POST",
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/GetBranchCustomerAll",
+            data: { cus_id: cus_id },
+            dataType: "json",
+            async: false,
+            success: function (data) {
+            }
+        }).responseJSON;
+    }
+
+    var customer_select = GetCustomerAll();
+    //var branch = 
+
+    var formWidget = $("#form").dxForm({
+
+        formData: formData,
+        readOnly: false,
+        showColonAfterLabel: true,
+        showValidationSummary: true,
+        validationGroup: "customerData",
+        items: [{
+            itemType: "group",
+            //caption: "Customer",
+            colCount: 10,
+            items: [{
+                dataField: "name",
+                editorType: "dxSelectBox",
+                editorOptions: {
+                    // dataSource: customer_select,
+                    dataSource: customer_select,
+                    key: "cus_id",
+                    displayExpr: 'cus_name',
+                    valueExpr: 'cus_id',
+                    onValueChanged: function (e) {
+                        console.log(formWidget);
+                        var previousValue = e.previousValue;
+                        var newValue = e.value;
+                        customer_current_select = e.value;
+                        branch_current_select = 0;
+                        console.log(newValue);
+                        show_grid_branch(newValue);
+                        show_grid_product(newValue);
+                        show_grid_route(newValue);
+                        //console.log(formWidget._options.items[0]);
+                    }
+                },
+                label: {
+                    text: formData.label_name
+                },
+                colSpan: 4
+            },
+            {
+                itemType: "button",
+                horizontalAlignment: "left",
+                buttonOptions: {
+                    text: "เพิ่ม/แก้ไข ลูกค้า",
+                    type: "default",
+                    onClick: function (e) {
+                        show_popup(e, 'เพิ่ม/แก้ไข ลูกค้า', 'customer');
+                    }
+                },
+                colSpan: 6
+            },
+            ]
+        },
+        ]
+    }).dxForm("instance");
+
+    var show_column_branch = [
+        {
+            dataField: "branch_name",
+            caption: "ชื่อสาขา"
+        },
+        {
+            dataField: "address",
+            caption: "ที่อยู่"
+        },
+        {
+            dataField: "zip_code",
+            caption: "รหัสไปรษณีย์"
+        },
+        //{
+        //    dataField: "province_id",
+        //    caption: "จังหวัด"
+        //}
+    ];
+    var grid_branch = $("#grid_branch").dxDataGrid({
+        keyExpr: "branch_id",
+        columns: show_column_branch,
+        editing: {
+            allowUpdating: true, // Enables editing
+            allowAdding: true, // Enables insertion
+            allowDeleting: true, // Enables removing
+            mode: 'popup',
+            form: {
+                items: allow_edit_branch
+            },
+        },
+        onContentReady: function (e) {
+            e.element.find(".dx-datagrid-header-panel").find(".dx-toolbar-before").html('<div style="padding-top: 10px" class="textstyle_1"><B>&nbsp;&nbsp;สาขา</B></div>');
+        },
+        searchPanel: {
+            visible: true,
+            highlightCaseSensitive: true
+        },
+        showBorders: true
+    }).dxDataGrid("instance");
+
+
 
     var columns_add_customer = [
         {
-            dataField: "name",
+            dataField: "cus_name",
             caption: "ชื่อ",
-        },
-        {
-            dataField: "force",
-            caption: "กำหนดหัว/หาง",
-            dataType: "boolean",
         }
     ];
 
@@ -2405,69 +2521,6 @@
     },
     ];
 
-    var formWidget = $("#form").dxForm({
-
-        formData: formData,
-        readOnly: false,
-        showColonAfterLabel: true,
-        showValidationSummary: true,
-        validationGroup: "customerData",
-        items: [{
-            itemType: "group",
-            //caption: "Customer",
-            colCount: 10,
-            items: [{
-                dataField: "name",
-                editorType: "dxSelectBox",
-                editorOptions: {
-                    // dataSource: customer_select,
-                    dataSource: customer_select,
-                    key: "cs_id",
-                    displayExpr: 'name',
-                    valueExpr: 'cs_id',
-                    onValueChanged: function (e) {
-                        console.log(formWidget);
-                        var previousValue = e.previousValue;
-                        var newValue = e.value;
-                        customer_current_select = e.value;
-                        branch_current_select = 0;
-                        show_grid_branch(newValue);
-                        show_grid_product(newValue);
-                        show_grid_route(newValue);
-                        //console.log(formWidget._options.items[0]);
-                    }
-                },
-                label: {
-                    text: formData.label_name
-                },
-                colSpan: 4
-            },
-            {
-                itemType: "button",
-                horizontalAlignment: "left",
-                buttonOptions: {
-                    text: "เพิ่ม/แก้ไข ลูกค้า",
-                    type: "default",
-                    onClick: function (e) {
-                        show_popup(e, 'เพิ่ม/แก้ไข ลูกค้า', 'customer');
-                    }
-                },
-                colSpan: 6
-            },
-            ]
-        },
-        ]
-    }).dxForm("instance");
-
-    function show_grid_branch(cs_id) {
-        // alert(cs_id);
-        var data_branch_filter = branch.filter(function (arr) {
-            return arr.cs_id == cs_id;
-        });
-        //formWidget.option('items[0].items[2].editorOptions.dataSource', data_branch_filter);
-        grid_branch.option('dataSource', data_branch_filter);
-
-    }
 
     function show_grid_product(cs_id) {
         var data_product_filter = product.filter(function (arr) {
@@ -2484,27 +2537,7 @@
         grid_route.option('dataSource', data_route_filter);
     }
 
-    var grid_branch = $("#grid_branch").dxDataGrid({
-        // dataSource: product,
-        keyExpr: "branch_id",
-        editing: {
-            allowUpdating: true, // Enables editing
-            allowAdding: true, // Enables insertion
-            allowDeleting: true, // Enables removing
-            mode: 'popup',
-            form: {
-                items: allow_edit_branch
-            },
-        },
-        onContentReady: function (e) {
-            e.element.find(".dx-datagrid-header-panel").find(".dx-toolbar-before").html('<div style="padding-top: 10px" class="textstyle_1"><B>&nbsp;&nbsp;สาขา</B></div>');
-        },
-        searchPanel: {
-            visible: true,
-            highlightCaseSensitive: true
-        },
-        showBorders: true
-    }).dxDataGrid("instance");
+    
 
     var grid_product = $("#grid_product").dxDataGrid({
         // dataSource: product,
@@ -2888,7 +2921,7 @@
         $("#popup_add_customer").dxPopup("show");
 
         if (table == 'customer') {
-            show_grid_in_popup(columns_add_customer, customer_select);
+            show_grid_in_popup_customer(columns_add_customer, customer_select);
         } else if (table == 'branch') {
             show_grid_in_popup(columns_add_branch, branch_select.filter(function (arr) { return arr.cs_id == customer_current_select; }));
         } else if (table == 'contact') {
@@ -2919,6 +2952,46 @@
         }).dxDataGrid('instance');
     }
 
+    function show_grid_in_popup_customer(show_column, data_source) {
+        var grid_add_data = $("#grid_add_data").dxDataGrid({
+            dataSource: data_source,
+            keyExpr: "cus_id",
+            columns: show_column,
+            editing: {
+                allowUpdating: true,
+                allowAdding: true,
+                allowDeleting: true
+            },
+            showBorders: true,
+            height: 'auto',
+            scrolling: {
+                mode: "virtual"
+            },
+            onRowInserting: function (e) {
+                
+                var idInsert = fnInsertCustomer(e.data);
+                if (idInsert != 0) {
+                } else {
+                    e.cancel = true;
+                }
+            },
+            onRowUpdating: function (e) {
+                if (!fnUpdateCustomer(e.newData, e.key)) {
+                    alert('test');
+                    //e.cancel = true;
+                }
+            },
+            onRowRemoving: function (e) {
+                e.cancel = fnDeleteCustomer(e.key);
+            },
+            searchPanel: {
+                visible: true,
+                width: "auto",
+                placeholder: "Search..."
+            }
+        }).dxDataGrid('instance');
+    }
+
     var popup_add_customer = $("#popup_add_customer").dxPopup({
         visible: false,
         width: "60%",
@@ -2930,8 +3003,115 @@
         }
     }).dxPopup("instance");
 
+    function fnInsertCustomer(data) {
+        var id_return = 0;
+        $.ajax({
+            type: 'POST',
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/InsertCustomer",
+            data: {cus_name:  data.cus_name  },
+            dataType: "json",
+            async: false,
+            success: function (res) {
+                console.log(res);
+                id_return = res.id_return;
+                if (id_return > 0) {
+                    
+                    formWidget.repaint();
+                    DevExpress.ui.notify("เพิ่มข้อมูลเรียบร้อยแล้ว", "success");
+                } else {
+                    DevExpress.ui.notify("ไม่สามารถเพิ่มข้อมูลได้กรุณาตรวจสอบข้อมูล", "error");
+                }
+            }
+        });
+        return id_return;
+    }
 
+    function fnUpdateCustomer(data, key) {
+        console.log(key)
+        var returnStatus;
+        $.ajax({
+            type: 'POST',
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/UpdateCustomer",
+            data: { cus_id: key, cus_name: data.cus_name },
+            dataType: "json",
+            async: false,
+            success: function (res) {
+                if (res.code == "OK") {
+                    formWidget.repaint();
+                    DevExpress.ui.notify("แก้ไขข้อมูลเรียบร้อยแล้ว", "success");
+                    returnStatus = true;
+                } else {
+                    DevExpress.ui.notify("ไม่สามารถแก้ไขข้อมูลได้กรุณาตรวจสอบข้อมูล", "error");
+                    returnStatus = false;
+                }
+            }
+        });
+        
+        return returnStatus;
+    }
+
+    function fnDeleteCustomer(key) {
+        console.log(key)
+        var returnStatus;
+        $.ajax({
+            type: 'POST',
+            url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/DeleteCustomer",
+            data: { cus_id: key},
+            dataType: "json",
+            async: false,
+            success: function (res) {
+                if (res.code == "OK") {
+                    formWidget.repaint();
+                    DevExpress.ui.notify("ลบข้อมูลเรียบร้อยแล้ว", "success");
+                    returnStatus = false;
+                } else {
+                    DevExpress.ui.notify("ไม่สามารถลบข้อมูลได้", "error");
+                    returnStatus = true;
+                }
+            }
+        });
+
+        return returnStatus;
+    }
+
+
+    function show_grid_branch(cus_id) {
+        var data_branch_filter = GetBranchCustomerAll(cus_id).filter(function (arr) {
+            return arr.cus_id == cus_id;
+        });
+        grid_branch.option('dataSource', data_branch_filter);
+    }
+
+    function InsertBranchCustomer(data) {
+        console.log(data);
+        //var id_return = 0;
+        //$.ajax({
+        //    type: 'POST',
+        //    url: "http://tabien.threetrans.com/TTApi/CheckList/Profile/InsertBranchCustomer",
+        //    data: { cus_name: data.cus_name },
+        //    dataType: "json",
+        //    async: false,
+        //    success: function (res) {
+        //        console.log(res);
+        //        id_return = res.id_return;
+        //        if (id_return > 0) {
+
+        //            formWidget.repaint();
+        //            DevExpress.ui.notify("เพิ่มข้อมูลเรียบร้อยแล้ว", "success");
+        //        } else {
+        //            DevExpress.ui.notify("ไม่สามารถเพิ่มข้อมูลได้กรุณาตรวจสอบข้อมูล", "error");
+        //        }
+        //    }
+        //});
+        //return id_return;
+    }
 });
+
+
+
+
+
+
 
 var formData = {
     "name": "",
@@ -2952,21 +3132,7 @@ var formData = {
     // "Accepted": false
 };
 
-var customer_select = [
-    {
-        cs_id: 1,
-        name: "TRT",
-        force: 1,
-    }, {
-        cs_id: 2,
-        name: "Maxxis",
-        force: 0,
-    }, {
-        cs_id: 3,
-        name: "Thai Summit",
-        force: 0,
-    }
-];
+
 
 var contact_select = [{
     cons_id: 1,
@@ -3011,68 +3177,68 @@ var contact_select = [{
 }
 ];
 
-var branch = [
-    {
-        branch_id: 1,
-        branch: "ปลวกแดง",
-        address: "7/114 หมู่ 4 นิคมอุตสาหกรรมอมตะซิตี้ ตำบลมาบยางพร อำเภอปลวกแดง",
-        //country: 'ไทย',
-        //province: "ระยอง",
-        //district: "ปลวกแดง",
-        //sub_district: "มาบยางพร",
-        //house_no: "7/114",
-        //postcode: '21140',
-        cs_id: 1,
-    },
-    {
-        branch_id: 2,
-        branch: "ปลวกแดง",
-        address: "300/1 หมู่ 1 นิคมอุตสาหกรรมอีสเทิร์นซีบอร์ด ตำบลตาสิทธิ์ อำเภอปลวกแดง",
-        //country: 'ไทย',
-        //province: "ระยอง",
-        //district: "ปลวกแดง",
-        //sub_district: "ตาสิทธิ์",
-        //house_no: "300/1",
-        //postcode: '21140',
-        cs_id: 2,
-    },
-    {
-        branch_id: 3,
-        branch: "ปลวกแดง",
-        address: "500/9, ตาสิทธิ์, ปลวกแดง, ",
-        //country: 'ไทย',
-        //province: "ระยอง",
-        //district: "ปลวกแดง",
-        //sub_district: "ตาสิทธิ์",
-        //house_no: "500/9",
-        //postcode: '21140',
-        cs_id: 3,
-    },
-    {
-        branch_id: 4,
-        branch: "ปิ่นทอง",
-        address: "150/14,16-20, หนองขาม, ศรีราชา, ชลบุรี 20110",
-        //country: 'ไทย',
-        //province: "ชลบุรี",
-        //district: "ศรีราชา",
-        //sub_district: "หนองขาม",
-        //house_no: "150/14,16-20",
-        //postcode: '20110',
-        cs_id: 3,
-    },
-    {
-        branch_id: 5,
-        branch: "แหลมฉบัง",
-        address: "202 ม.3 นิคมอุตสาหกรรมแหลมฉบัง ต.ทุ่งสุขลา อ.ศรีราชา",
-        //country: 'ไทย',
-        //province: "ชลบุรี",
-        //district: "ศรีราชา",
-        //sub_district: "ทุ่งสุขลา",
-        //house_no: "202",
-        //postcode: '20230',
-        cs_id: 3,
-    },
-];
+//var branch = [
+//    {
+//        branch_id: 1,
+//        branch: "ปลวกแดง",
+//        address: "7/114 หมู่ 4 นิคมอุตสาหกรรมอมตะซิตี้ ตำบลมาบยางพร อำเภอปลวกแดง",
+//        //country: 'ไทย',
+//        //province: "ระยอง",
+//        //district: "ปลวกแดง",
+//        //sub_district: "มาบยางพร",
+//        //house_no: "7/114",
+//        //postcode: '21140',
+//        cs_id: 1,
+//    },
+//    {
+//        branch_id: 2,
+//        branch: "ปลวกแดง",
+//        address: "300/1 หมู่ 1 นิคมอุตสาหกรรมอีสเทิร์นซีบอร์ด ตำบลตาสิทธิ์ อำเภอปลวกแดง",
+//        //country: 'ไทย',
+//        //province: "ระยอง",
+//        //district: "ปลวกแดง",
+//        //sub_district: "ตาสิทธิ์",
+//        //house_no: "300/1",
+//        //postcode: '21140',
+//        cs_id: 2,
+//    },
+//    {
+//        branch_id: 3,
+//        branch: "ปลวกแดง",
+//        address: "500/9, ตาสิทธิ์, ปลวกแดง, ",
+//        //country: 'ไทย',
+//        //province: "ระยอง",
+//        //district: "ปลวกแดง",
+//        //sub_district: "ตาสิทธิ์",
+//        //house_no: "500/9",
+//        //postcode: '21140',
+//        cs_id: 3,
+//    },
+//    {
+//        branch_id: 4,
+//        branch: "ปิ่นทอง",
+//        address: "150/14,16-20, หนองขาม, ศรีราชา, ชลบุรี 20110",
+//        //country: 'ไทย',
+//        //province: "ชลบุรี",
+//        //district: "ศรีราชา",
+//        //sub_district: "หนองขาม",
+//        //house_no: "150/14,16-20",
+//        //postcode: '20110',
+//        cs_id: 3,
+//    },
+//    {
+//        branch_id: 5,
+//        branch: "แหลมฉบัง",
+//        address: "202 ม.3 นิคมอุตสาหกรรมแหลมฉบัง ต.ทุ่งสุขลา อ.ศรีราชา",
+//        //country: 'ไทย',
+//        //province: "ชลบุรี",
+//        //district: "ศรีราชา",
+//        //sub_district: "ทุ่งสุขลา",
+//        //house_no: "202",
+//        //postcode: '20230',
+//        cs_id: 3,
+//    },
+//];
 
 var contact = [
     {
@@ -3312,4 +3478,6 @@ var allow_edit_branch = [
         ]
         ,
     }
+
+
 ];

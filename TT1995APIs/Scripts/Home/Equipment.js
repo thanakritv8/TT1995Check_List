@@ -136,9 +136,9 @@
                     pic = (data.component._options.validationGroup.oldData.eq_path).replace("C:\\inetpub\\wwwroot", "http://tabien.threetrans.com");
                     console.log(pic);
                 }
-                itemElement.append($("<div class='center'><div class='form-avatar' id='form-avatar'><img src='" + pic + "' id='image' width='100%' height='100%'></div></div>"));
+                itemElement.append($("<div class='center'><div class='form-avatar' id='form-avatar'><img src='" + pic + "' id='image_transport' width='100%' height='100%'></div></div>"));
                 if (pic == '') {
-                    $("#image").hide();
+                    $("#image_transport").hide();
                 }
             }
         },
@@ -161,8 +161,8 @@
                                 if (e.value.length) {
                                     var reader = new FileReader();
                                     reader.onload = function (e) {
-                                        $('#image').attr('src', e.target.result);
-                                        $("#image").show();
+                                        $('#image_transport').attr('src', e.target.result);
+                                        $("#image_transport").show();
                                     }
                                     reader.readAsDataURL(e.value[0]);
                                 }
@@ -310,6 +310,9 @@
             $("#btn_upload_file").remove();
             GbE = e;
         },
+        onInitNewRow: function (e) {
+            $("#btn_upload_file").remove();
+        },
         onRowInserting: function (e) {
             var idInsert = fnInsertEqTransport(e.data);
             if (idInsert != 0) {
@@ -377,6 +380,9 @@
         onEditingStart: function (e) {
             $("#btn_upload_file").remove();
             GbE = e;
+        },
+        onInitNewRow: function (e) {
+            $("#btn_upload_file").remove();
         },
         onRowInserting: function (e) {
             var idInsert = fnInsertEqSafety(e.data);
@@ -551,7 +557,7 @@
         //model.append('Image', btn_upload_file._options.value[0]);
         //data.eq_safety_id = key;
         console.log(btn_upload_file._options.value[0]);
-        console.log(data.style);
+        console.log(data.style);ลูก
         console.log(key);
         var returnStatus;
         $.ajax({
